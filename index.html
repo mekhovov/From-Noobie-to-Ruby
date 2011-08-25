@@ -62,9 +62,23 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <div id="bg-ror" class="background"></div>
       <div id="bg-history" class="background"></div>
       <div id="bg-japan_vs_usa" class="background"></div>
+      <div id="bg_striped_blue" class="background"></div>
+      <div id="bg_striped_violet" class="background"></div>
+      <div id="bg_striped_grey" class="background"></div>
 
+<div id="bg_ruby_what_is" class="background"></div>
+<div id="bg_ruby_light" class="background"></div>
+<div id="bg_ruby_functional" class="background"></div>
+<div id="bg_ruby_elegant" class="background"></div>
+<div id="bg_ruby_dynamic" class="background"></div>
+<div id="bg_ruby_reflective" class="background"></div>
+<div id="bg_ruby_os" class="background"></div>
+<div id="bg_ruby_flexible" class="background"></div>
+<div id="bg_ruby_language" class="background"></div>
+<div id="bg_ruby_what_is_2" class="background"></div>
 
-
+<div id="bg_ror_1" class="background"></div>
+<div id="bg_scene" class="background"></div>
 
 
 <!=========================================== The Beginning ===================================================
@@ -78,7 +92,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
  * slide001 | Preflight
  *
 -->
-<div class="slide transparent centercontents" id="slide-preflight"  data-backgroundid="slide002_bg">
+<div class="slide transparent centercontents" id="slide-preflight"  data-backgroundid="bg_striped_blue">
   <section class="white_text">
     <h2>Preflight</h2>
     <div id="browser-webkit" class="hidden good feature">
@@ -178,7 +192,11 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       </div>
     </div>
   </section>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <section class="white_text">
+        <br><br><br><br>
+      If things look good, press <span class="key">→</span> to move on.
+  </section>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
 
@@ -215,10 +233,10 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 <div class="slide centercontents centertext" id="slide-title" data-backgroundid="bg-pattern">
   <h1>From Noobie to Ruby</h1>
   <section>
-    <img src="images/slide004_img.jpg" style="width:450px">
+    <img src="images/got_rot.png" style="width:550px;margin-top:-50px">
   </section>
   <section>
-    Not a <strong>boooring</strong> Presentation about <strong>Ruby</strong> and <strong>Ruby on Rails</strong><br>
+    <strong>Not</strong> a <strong>boooring</strong> presentation about <strong>Ruby</strong> and <strong>Ruby on Rails</strong><br>
   </section>
  
 </div>
@@ -228,15 +246,23 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
  * RoR multik
  *
 -->
-<div class="slide centercontents centertext" id="slide-title" data-backgroundid="bg-pattern">
-  <section>
-    <video width="640" height="480" controls="controls" >
+
+<div class="slide transparent image" data-backgroundid="bg_scene">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+    <span style="margin-left:250px">
+    <video width="620" height="480" controls="controls" >
         <source src="videos/ror_web_development_that_doesnt_h.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
-  </section>
-  <h1>Web development that doesn't hurt</h1>
+    </span>
+      <h1 style="margin-left:240px">Web development that doesn't hurt</h1>
+    </section>
+  </div>
 </div>
+
+
+
 
 
 <!--------------------------------------- Slide 5 -------------------------------------------------------
@@ -297,19 +323,257 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
+
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
- * What is Ruby? History
+ * I believe people want to express
  *
 -->
-<div class="slide transparent image" data-backgroundid="bg-history">
+
+<div class="slide transparent image" id="slide-value" data-backgroundid="bg_striped_blue">
+  <section >
+  <strong>
+    <p style="font-size:80%; color:#bbb"><span style="font-size:90%; color:#fff">I believe</span> people want to <span style="font-size:90%; color:#fff">express</span> themselves when they program. </p>
+
+    <p style="font-size:80%; color:#bbb"><span style="font-size:90%; color:#fff">I tried</span> to make people <span style="font-size:90%; color:#fff">enjoy</span> programming and concentrate on the <span style="font-size:90%; color:#fff">fun</span></p>
+    <p style="font-size:80%; color:#bbb">and <span style="font-size:90%; color:#fff">creative</span> part of programming when they use <span style="font-size:90%; color:#fff">Ruby</span>.</p>
+  <br>
+  <strong>
+    <p style="font-size:50%; color:#111">Masumoto Yukihiro, “matz”</p>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby?
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_what_is">
   <div data-build>
     <section class="bottomWide dark" data-auto>
-      <h1>What is Ruby ?  Ruby History.</h1>
+      <h1>What is Ruby ?</h1>
     </section>
   </div>
 </div>
 
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby?
+ *
+
+<div class="slide centercontents" >
+  <header>What Is Ruby?</header>
+  <section>
+    <div style="font-size:130%;">
+      <p>Ruby is a <span class="mark_green">object-oriented</span> programming language.</p>
+    </div>
+  </section>
+</div>
+-->
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? dynamic
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_language">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Object-oriented Programming Language</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? dynamic
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_dynamic">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Dynamic</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby? dynamic
+ *
+
+<div class="slide centercontents" >
+  <header>What Is Ruby?</header>
+  <section>
+    <div style="font-size:130%;">
+      <p>Ruby is a <span class="mark_red">dynamic</span>,  <span class="mark_green">object-oriented</span></p>
+      <p>programming language.</p>
+    </div>
+  </section>
+</div>
+-->
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? reflective
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_reflective">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Reflective</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby? reflective
+ *
+
+<div class="slide centercontents">
+  <header>What Is Ruby?</header>
+  <section>
+    <div style="font-size:130%;">
+      <p>Ruby is a <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
+      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span></p>
+      <p>programming language.</p>
+    </div>
+  </section>
+</div>
+-->
+        
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? lightweight
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_light">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Lightweight</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby? lightweight
+ *
+
+<div class="slide transparent centercontents">
+  <header>What Is Ruby?</header>
+  <section>
+    <div style="font-size:130%;">
+      <p>Ruby is a <span class="mark_yellow">lightweight</span>, <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
+      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span></p>
+      <p>programming language.</p>
+    </div>
+  </section>
+</div>
+-->
+
+        
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? functional
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_functional">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Slightly Functional</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby? functional
+ *
+
+<div class="slide centercontents">
+  <header>What Is Ruby?</header>
+  <section>
+    <div style="font-size:130%;">
+      <p>Ruby is a <span class="mark_yellow">lightweight</span>, <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
+      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span> </p>
+      <p>(<span class="mark_blue">and slightly functional</span>) programming language.</p>
+      <p></p>
+    </div>
+  </section>
+</div>
+-->
+
+
+
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? open source
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_os">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Open Source</h1>
+    </section>
+  </div>
+</div>
+
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? elegant
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_elegant">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Elegant</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby? flexible
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg_ruby_flexible">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Flexible</h1>
+    </section>
+  </div>
+</div>
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * What Is Ruby? 
+ *
+-->
+<div class="slide transparent centercontents" data-backgroundid="bg_ruby_what_is_2">
+  
+  <section >
+    <div style="font-size:110%; color:#fff">
+      <h1>Ruby is a <span class="mark_yellow">lightweight</span>, <span class="mark_red">dynamic</span>,</h1>
+      <h1> <span class="mark_red">reflective</span>, <span class="mark_purple">general purpose</span> </h1>
+      <h1><span class="mark_green">object-oriented</span>, <span class="mark_yellow">scripting</span></h1>
+      <h1>(and slightly <span class="mark_blue">functional</span>) </h1>
+      <h1><span class="mark_yellow">open-source</span>   programming language</h1>
+      <h1>with <span class="mark_red">elegant</span>, <span class="mark_green">flexible syntax.</span></h1>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+        
 <!--------------------------------------- Slide 9 -------------------------------------------------------
  *
  * Some Ruby History
@@ -327,7 +591,104 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </section>
 </div>
 
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * Not like this
+ *
+-->
+<div class="slide centercontents">
+  <header>Not like this</header>
+  <section>
 
+<pre style="font-size:11px">
+  !/usr/bin/perl -w
+
+                                            sub j(\$){($
+             P,$V)=                      @_;while($$P=~s:^
+         ([()])::x){                    $V+=('('eq$1)?-32:31
+   }$V+=ord(  substr(                 $$P,0,1,""))-74} sub a{
+  my($I,$K,$  J,$L)=@_               ;$I=int($I*$M/$Z);$K=int(
+ $K*$M/$Z);$J=int($J*$M             /$Z);$L=int($L*$M/$Z); $G=$
+ J-$I;$F=$L-$K;$E=(abs($          G)>=abs($F))?$G:$F;($E<0) and($
+  I,$K)=($J,$L);$E||=.01       ;for($i=0;$i<=abs$E;$i++ ){ $D->{$K
+          +int($i*$F/$E)      }->{$I+int($i*$G/$E)}=1}}sub p{$D={};$
+         Z=$z||.01;map{    $H=$_;$I=$N=j$H;$K=$O=j$H;while($H){$q=ord
+        substr($H,0,1,"" );if(42==$q){$J=j$H;$L=j$H}else{$q-=43;$L =$q
+      %9;$J=($q-$L)/9;$L=$q-9*$J-4;$J-=4}$J+=$I;$L+=$K;a($I,$K,$J,$ L);
+      ($I,$K)=($J,$L)}a($I,$K,$N,$O)}@_;my$T;map{$y=$_;map{ $T.=$D->{$y}
+      ->{$_}?$\:' '}(-59..59);$T.="\n"}(-23..23);print"\e[H$T"}$w= eval{
+      require Win32::Console::ANSI};$b=$w?'1;7;':'';($j,$u,$s,$t,$a,$n,$o
+      ,$h,$c,$k,$p,$e,$r,$l,$C)=split/}/,'Tw*JSK8IAg*PJ[*J@wR}*JR]*QJ[*J'.
+       'BA*JQK8I*JC}KUz]BAIJT]*QJ[R?-R[e]\RI'.'}Tn*JQ]wRAI*JDnR8QAU}wT8KT'.
+       ']n*JEI*EJR*QJ]*JR*DJ@IQ[}*JSe*JD[n]*JPe*'.'JBI/KI}T8@?PcdnfgVCBRcP'.
+        '?ABKV]]}*JWe*JD[n]*JPe*JC?8B*JE};Vq*OJQ/IP['.'wQ}*JWeOe{n*EERk8;'.
+          'J*JC}/U*OJd[OI@*BJ*JXn*J>w]U}CWq*OJc8KJ?O[e]U/T*QJP?}*JSe*JCnTe'.
+           'QIAKJR}*JV]wRAI*J?}T]*RJcJI[\]3;U]Uq*PM[wV]W]WCT*DM*SJ'.  'ZP[Z'.
+              'PZa[\]UKVgogK9K*QJ[\]n[RI@*EH@IddR[Q[]T]T]T3o[dk*JE'.  '[Z\U'.
+                '{T]*JPKTKK]*OJ[QIO[PIQIO[[gUKU\k*JE+J+J5R5AI*EJ00'.  'BCB*'.
+                     'DMKKJIR[Q+*EJ0*EK';sub h{$\ = qw(% & @ x)[int    rand
+                      4];map{printf  "\e[$b;%dm",int(rand 6)+101-60*   ($w
+                       ||0);system(  "cls")if$w ;($A,$S)=    ($_[1],   $
+                        _[0]);($M,   @,)= split  '}';for(     $z=256
+                        ;$z>0; $z   -=$S){$S*=   $A;p @,}      sleep$_
+                        [2];while   ($_[3]&&($    z+=$ S)       <=256){
+                        p@,}}("".   "32}7D$j"     ."}AG".       "$u}OG"
+                        ."$s}WG"    ."$t",""      ."24}("        ."IJ$a"
+                        ."}1G$n"    ."}CO$o"     ."}GG$t"        ."}QC"
+                         ."$h}"      ."^G$e"    ."})IG"          ."$r",
+                         "32}?"       ."H$p}FG$e}QG$r".          "}ZC"
+                         ."$l",          "28}(LC" .""            ."".
+                         "$h}:"           ."J$a}EG".             "$c"
+                         ."}M"             ."C$k}ZG".            "$e"
+                         ."}"             ."dG$r","18"          ."}("
+                        ."D;"            ."$C"  )}{h(16         ,1,1,0
+                       );h(8,          .98,0,0   );h(16         ,1,1,1)
+                       ;h(8.0         ,0.98,0,     1);         redo}###
+                     #written                                 060204 by
+                   #liverpole                                  @@@@@@@
+                #@@@@@@@@@@@
+</pre>
+
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 9 -------------------------------------------------------
+ *
+ * Like this
+ *
+-->
+<div class="slide centercontents">
+  <header>Like this</header>
+  <section>
+
+<pre style="font-size:22px">
+I = []; fit = [:your, :offer, ' http://www.standoutjobs.com/jobs.php?id=1409']
+just = checkout = %w(macournoyer cv)
+its = you = me = 1_000_000_000 #$
+class Array
+  def can i, help = :you; true end
+  def me love = ruby
+    $my = self; love='creating world'.class.new 'stuff'
+  end
+  def see _for = :yourself
+    `open http://#{$my.join '.com/'}/`
+  end
+  alias :am :to_a
+  alias :in? :include?
+end
+
+I.fill(0).each { |criterion| } && I.am.uniq! and :passionate
+
+its.upto(you) do |i| fit.in? :StandoutJobs
+   just.send :me, :an => 'email'
+end; %w(e ll).see if I.can :help => you
+
+</pre>
+
+  </section>
+</div>
+        
 <!--------------------------------------- Slide 10 -------------------------------------------------------
  *
  * What is Ruby?
@@ -337,16 +698,32 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <header>What is Ruby?</header>
   <section>
     <ul class="large">
-      <li><span class="mark_green">Object Oriented</span> <span class="mark_green">Scripting</span> language</li>
+
       <li>Everything is an <span class="mark_yellow">Object</span></li>
-      <li>*?* There is <span class="mark_red">no</span> notion of a <span class="mark_red">primitive</span> in Ruby, as in Java</li>
-      <li><span class="mark_blue">Open Source</span> language</li>
+      
 
     </ul>
   </section>
 </div>
 
 
+
+
+
+
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby?
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg-history">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>What is Ruby ?</h1>
+    </section>
+  </div>
+</div>
 
 
 <!--------------------------------------- Slide 11 -------------------------------------------------------
