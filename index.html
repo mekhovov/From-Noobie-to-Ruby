@@ -585,7 +585,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <ul class="large">
       <li><span class="mark_blue">Ruby</span> was developed in 1993 by Yukihiro “Matz” Matsumoto</li>
       <li>His intention was to create “a scripting language more powerful than <span class="mark_yellow">Perl</span>, and more object-oriented than <span class="mark_yellow">Python</span>”</li>
-      <li><span class="mark_green">Bonus</span>: Unlike Perl, you code doesn’t look like a giant regular expression when you’ve finished</li>
+      <li>Bonus: Unlike Perl, you code doesn’t look like a <span class="mark_red">giant</span> <span class="mark_red">regular</span> <span class="mark_red">expression</span> when you’ve finished</li>
 
     </ul>
   </section>
@@ -688,19 +688,168 @@ end; %w(e ll).see if I.can :help => you
 
   </section>
 </div>
-        
+
+
+
 <!--------------------------------------- Slide 10 -------------------------------------------------------
  *
- * What is Ruby?
+ * Basic Literals
  *
 -->
 <div class="slide centercontents">
-  <header>What is Ruby?</header>
+  <header>Basic Literals</header>
   <section>
     <ul class="large">
 
-      <li>Everything is an <span class="mark_yellow">Object</span></li>
-      
+      <li>String, Symbol</li>
+<pre style="font-size:22px">
+"Ukraine on Rails".split(' ')
+
+%("Go back," he said irritably.).size
+
+do_something_with(:this_symbol)
+</pre>
+
+      <li>Fixnum, Float</li>
+<pre style="font-size:22px">
+5.times do
+  puts "Simple is Beautiful!"
+end
+        
+12.5.between?(12, 13)
+</pre>
+
+
+    </ul>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Basic Literals 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Basic Literals</header>
+  <section>
+    <ul class="large">
+
+      <li>Array</li>
+<pre style="font-size:22px">
+['this', :is, 1, "Array"]
+
+%w(and so is this right here)
+
+and_this = []
+
+or_this = Array.new
+</pre>
+
+      <li>Hash</li>
+<pre style="font-size:22px">
+{:hashes => 1, 'are' => 'unordered'}
+
+Hash.new('and', :can_be, 'created', 'several ways')
+</pre>
+
+
+    </ul>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Variable Assignment & Scope
+ *
+-->
+<div class="slide centercontents" style="background: url('images/bgs/blueprint2.jpg')">
+  <header class="white_text">Variable Assignment & Scope</header>
+  <section>
+    <img src="images/ruby_scope.png" style="width:830px;"></img>
+
+<pre style="font-size:28px; background-color:rgba(255, 255, 255, 0.7); margin-top:-120px">
+age = 13  -> Assignment              age += 1  -> Reassignment
+</pre>
+
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Control Structures
+ *
+-->
+<div class="slide centercontents">
+  <header>Control Structures</header>
+  <section>
+    <ul class="large">
+
+      <li>If</li>
+<pre style="font-size:22px">
+if car.needs_gas?
+  car.fill_up!
+else
+  car.drive 40
+end
+
+car.fill_up! if car.needs_gas?
+</pre>
+
+      <li>Unless</li>
+<pre style="font-size:22px">
+unless car.needs_gas?
+  car.drive 40
+else
+  # 'else' clause not recommended
+  car.fill_up!
+end
+
+car.drive 40 unless car.needs_gas?
+</pre>
+
+
+    </ul>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Control Structures 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Control Structures</header>
+  <section>
+    <ul class="large">
+
+      <li>Case</li>
+<pre style="font-size:22px">
+case car.model
+when 'Ford'
+  # ...
+when 'Porsche'
+  # ...
+else
+  # Something else
+end
+</pre>
+
+      <li>Loops</li>
+<pre style="font-size:22px">
+while car.can_drive? 40
+  car.drive 40
+end
+
+loop do
+  # do something forever
+end
+</pre>
+
 
     </ul>
   </section>
@@ -709,22 +858,207 @@ end; %w(e ll).see if I.can :help => you
 
 
 
-
-
-
-<!--------------------------------------- Slide 8 -------------------------------------------------------
+<!--------------------------------------- Slide 10 -------------------------------------------------------
  *
- * What is Ruby?
+ * Blocks
  *
 -->
-<div class="slide transparent image" data-backgroundid="bg-history">
-  <div data-build>
-    <section class="bottomWide dark" data-auto>
-      <h1>What is Ruby ?</h1>
-    </section>
-  </div>
+<div class="slide centercontents">
+  <header>Blocks</header>
+  <section>
+    <ul class="large">
+
+      <li>Iteration</li>
+<pre style="font-size:22px">
+%w(one two three).each do |item|
+  puts item
+end
+</pre>
+
+      <li>Transactions</li>
+<pre style="font-size:22px">
+File.open('output.txt', 'w') do |f|
+  f.puts 'This is some output'
+end
+</pre>
+
+
+    </ul>
+  </section>
 </div>
 
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Blocks 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Blocks</header>
+  <section>
+    <ul class="large">
+
+      <li>Handlers</li>
+<pre style="font-size:22px">
+button.on :click do |event|
+  window.close!
+end
+</pre>
+
+      <li>Conditional Yield</li>
+<pre style="font-size:22px">
+<% admin do %>
+  &lt;p>Admin-only content&lt;/p>
+<% end %>
+        
+&lt;p>Normal Content&lt;p>
+</pre>
+
+
+    </ul>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Methods
+ *
+-->
+<div class="slide centercontents">
+  <header>Blocks</header>
+  <section>
+    <ul class="large">
+
+      <li>Simple</li>
+<pre style="font-size:22px">
+def say_hello
+  puts "Hello!"
+end
+
+say_hello # Hello!
+</pre>
+
+      <li>With Arguments</li>
+<pre style="font-size:22px">
+def say(text)
+  puts text
+end
+
+say "Okay!" # Okay
+</pre>
+
+
+    </ul>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Methods 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Blocks</header>
+  <section>
+    <ul class="large">
+
+      <li>Simple</li>
+<pre style="font-size:22px">
+def remove_files(*files) # 'files' is an Array
+  files.each do |file|
+    FileUtils.rm file
+  end
+end
+
+remove_files 'foo.txt', 'bar.dat'
+</pre>
+
+      <li>Assigning a Block</li>
+<pre style="font-size:22px">
+def do_it(&block)
+  block.call # same as 'yield'
+end
+
+do_it do
+  puts "Hi"
+end
+</pre>
+    </ul>
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Classes
+ *
+-->
+<div class="slide centercontents">
+  <header>Defining a Class</header>
+  <section>
+    <ul class="large">
+
+      <li>Simple</li>
+<pre style="font-size:22px">
+class Car
+
+  attr_reader :make, :model, :year
+
+  def initialize(make, model, year)
+    @make, @model, @year = make, model, year
+  end
+
+  def drive(distance)
+    puts "Drove a #{@year} #{@make} #{@model} #{distance}"
+  end
+
+end
+</pre>
+
+    </ul>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Classes 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Classes</header>
+  <section>
+    <ul class="large">
+
+      <li>Inheritance / Polymorphism</li>
+<pre style="font-size:22px">
+class Coupe < Car
+
+  def initialize(*args)
+    super
+    @doors = 2
+  end
+  
+end
+</pre>
+
+      <li>Instantiation</li>
+<pre style="font-size:22px">
+vroom = Car.new "Audi", "A4", 2008
+
+vroom.drive '20km' # Drove a 2008 Audi A4 20km
+</pre>
+    </ul>
+  </section>
+</div>
 
 <!--------------------------------------- Slide 11 -------------------------------------------------------
  *
@@ -732,10 +1066,10 @@ end; %w(e ll).see if I.can :help => you
  *
 -->
 <div class="slide centercontents">
-  <header>Really Object Oriented</header>
+  <header>Everything is an Object </header>
   <section>
 
-<pre style="font-size:25px">
+<pre style="font-size:22px">
 
 <b>"Hello World"</b>.class # <b>String</b>
 
@@ -749,6 +1083,140 @@ end; %w(e ll).see if I.can :help => you
   </section>
 </div>
 
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Enumerable
+ *
+-->
+<div class="slide centercontents">
+  <header>Enumerable</header>
+  <section>
+    <ul class="large">
+
+      <li>each</li>
+<pre style="font-size:22px">
+files.each do |file|
+  FileUtils.cp file, '/destination/dir'
+end
+</pre>
+
+      <li>map / collect</li>
+<pre style="font-size:22px">
+files = ['zsh.tar', 'index.xml']
+
+files.map do |file|
+  [file, File.stat(file).size]
+end
+
+# [["zsh.tar", 71680], ["index.xml", 68009]]
+</pre>
+    </ul>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Enumerable 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Enumerable</header>
+  <section>
+    <ul class="large">
+
+      <li>select, reject, detect</li>
+<pre style="font-size:22px">
+files.select { |f| File.stat(f) > 70_000 }  # ['zsh.tar']
+
+files.detect { |f| File.stat(f) > 70_000 }  # 'zsh.tar'
+
+files.reject { |f| File.stat(f) > 70_000 }  # ['index.xml']
+
+</pre>
+
+      <li>inject</li>
+<pre style="font-size:22px">
+files.inject({}) do |manifest, filename|
+  manifest[filename] = File.stat(filename).size
+  manifest
+end
+
+# {"zsh.tar" => 71680, "index.xml" => 68009}
+</pre>
+    </ul>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Mixins
+ *
+-->
+<div class="slide centercontents">
+  <header>Mixins</header>
+  <section>
+    <ul class="large">
+
+      <li>Module Definition</li>
+<pre style="font-size:22px">
+module Conversions
+
+  KM_PER_MILE = 1.609
+
+  def mi_to_km(miles)
+    miles * KM_PER_MILE
+  end
+
+  def km_to_mi(kilometers)
+    kilometers / KM_PER_MILE
+  end
+
+end
+</pre>
+
+    </ul>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Mixins 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Mixins</header>
+  <section>
+    <ul class="large">
+
+      <li>Include</li>
+<pre style="font-size:22px">
+class Car
+
+  include Conversions
+
+  def drive(distance, unit=:km)
+
+    distance = if unit == :km
+      distance
+    else
+      mi_to_km(distance)
+    end
+
+    # Do something
+  end
+
+  # ...
+  
+end
+</pre>
+
+    </ul>
+  </section>
+</div>
 
 
 <!--------------------------------------- Slide 12 -------------------------------------------------------
@@ -760,7 +1228,6 @@ end; %w(e ll).see if I.can :help => you
   <header>Dynamic Typing</header>
   <section>
     <ul class="large">
-      <li>Sometimes called <span class="mark_green">'Duck Typing'</span> or <span class="mark_green">'Lazy Typing'</span>, if you’re a meanie</li>
       <li>If it <span class="mark_blue">looks like</span> a duck, <span class="mark_blue">quacks</span> like a duck, then it’s a <span class="mark_purple">duck</span></li>
       <li>The interpreter will <span class="mark_red">assign types</span> to variables <span class="mark_red">dynamically</span> based on context</li>
       <li>The interpreter can allocate <span class="mark_yellow">more memory</span> for a <span class="mark_yellow">variable</span></li>
@@ -769,21 +1236,77 @@ end; %w(e ll).see if I.can :help => you
   </section>
 </div>
 
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Dynamic Features
+ *
+-->
+<div class="slide centercontents">
+  <header>Dynamic Features</header>
+  <section>
+    <ul class="large">
 
-<!--------------------------------------- Slide 13 -------------------------------------------------------
+      <li>Listing Methods</li>
+<pre style="font-size:22px">
+"name".methods
+
+# ["%", "select", "[]=", "inspect", "<<", "each_byte",
+# "method", "clone", "gsub", "casecmp", "public_
+</pre>
+
+      <li>Dynamic Evaluation</li>
+<pre style="font-size:22px">
+name = 'John'
+
+obj.instance_eval <&lt;CODE
+  def yell
+    puts "My name is #{name}!!!"
+  end
+CODE
+
+obj.yell # My name is John!!!
+</pre>
+    </ul>
+  </section>
+</div>
 
 
 
+<!--------------------------------------- Slide 10 -------------------------------------------------------
+ *
+ * Dynamic Features 2
+ *
+-->
+<div class="slide centercontents">
+  <header>Dynamic Features</header>
+  <section>
+    <ul class="large">
+
+      <li>Dynamic</li>
+<pre style="font-size:22px">
+obj.methods.select do |n|
+  n =~ /[a-z]$/
+end.each do |meth|
+  obj.instance_eval <<-CODE
+    alias :original_#{meth} :#{meth}
+    def #{meth}(*args, &block)
+      puts "Doing #{meth}..."
+      result = original_#{meth}(*args, &block)
+      puts "Done doing #{meth}, result: \#{result}"
+      result
+    end
+  CODE
+end
+</pre>
+
+
+    </ul>
+  </section>
+</div>
 
 
 
-
-
-
-
-
-
-
+        
 
 
         
