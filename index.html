@@ -302,7 +302,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     </div>
     <div class="profile">
       <img src="images/dhh.jpg" /><br>
-      <span class="name kurrik"><b>DHH</b> David Heinemeier Hansson</span><br>
+      <span class="name kurrik"><b>Dhh</b> David Heinemeier Hansson</span><br>
       <a target="_blank" href="http://rubyonrails.org/" class="twitter">Rails<img src="images/ico_ror.png"></img></a>
     </div>
   </section>
@@ -703,9 +703,9 @@ end
 
       <li>String, Symbol</li>
 <pre style="font-size:22px">
-"Ukraine on Rails".split(' ')
+"Ukraine on Rails".split(' ') #=> ["Ukraine", "on", "Rails"]
 
-%("Go back," he said irritably.).size
+%("Go back," he said irritably.).size #=> 29
 
 do_something_with(:this_symbol)
 </pre>
@@ -716,7 +716,7 @@ do_something_with(:this_symbol)
   puts "Simple is Beautiful!"
 end
         
-12.5.between?(12, 13)
+12.5.between?(12, 13) #=> true
 </pre>
 
 
@@ -937,16 +937,16 @@ def say_hello
   puts "Hello!"
 end
 
-say_hello # Hello!
+say_hello #=> Hello!
 </pre>
 
       <li>With Arguments</li>
 <pre style="font-size:22px">
-def say(text)
+def say text
   puts text
 end
 
-say "Okay!" # Okay
+say "Okay!" #=> Okay!
 </pre>
 
 
@@ -1078,6 +1078,8 @@ vroom.drive '20km' # Drove a 2008 Audi A4 20km
 <b>5</b>.class # <b>Fixnum</b>
 
 <b>true</b>.class # <b>TrueClass</b>
+
+<b>nil</b>.class # <b>NilClass</b>
 
 
 </pre>
