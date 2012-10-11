@@ -17,6 +17,7 @@
 @googlered: #e21d1d;
 @googleyellow: #f7cc22;
 @googlegreen: #419a0c;
+@googleorange: orange;
 @googleblue: #2666cc;
 @googledarkblue: #1b4568;
 @googlepurple: #551a8b;
@@ -270,6 +271,10 @@
   background: url('/images/20p-black.png') repeat, url('/images/japan_vs_usa.png');
 }
 
+#bg_01 {
+  .background-size(stretch);
+  background: url('/images/bg_01.png');
+}
 #bg_striped_blue {
   .background-size(stretch);
   background: url('/images/bg_striped_blue.jpg');
@@ -289,6 +294,10 @@
 #bg_scene {
   
   background: url('/images/bg_scene.jpg');
+}
+#bg-about_me {
+  .background-size(stretch);
+  background: url('/images/bg-about_me.png');
 }
 
 
@@ -325,6 +334,32 @@
 
 
 
+#bg-01 {
+  .background-size(inherit);
+  /*background: url('/images/bg-01.jpg');*/
+  // background: url('/images/bg/cat-02.png') bottom no-repeat, url('/images/ios-linen.jpg') repeat;
+  background: url('/images/ios-linen.jpg') repeat;
+}
+
+
+
+
+#bg-02 {
+  .background-size(stretch);
+  background: url('/images/bg-02.png');
+}
+#bg-03 {
+  .background-size(stretch);
+  background: url('/images/bg/03.jpg') bottom
+}
+#bg-04 {
+  .background-size(inherit);
+  background: url('/images/bg/bg-04.jpg') repeat;
+}
+#bg-05 {
+  .background-size(stretch);
+  background: url('/images/linen_lite.png') repeat;
+}
 
 
 
@@ -405,6 +440,13 @@ body {
   margin-top: 50px;
 }
 
+
+.note > section {
+  font-size: 14px;
+  color: white;
+  text-shadow: none;
+}
+
 .note {
   -webkit-transition: height 0.5s;
   height: 0;
@@ -437,6 +479,19 @@ section {
 
 .white_text {
   font: 30px 'Lato', 'Ubuntu', Arial;
+  font-weight: normal;
+  color: #cfcfcf;
+  text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+
+.white_text_small {
+  font: 18px 'Lato', 'Ubuntu', Arial;
+  font-weight: normal;
+  color: #cfcfcf;
+  text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
+}
+.white_text_large {
+  font: 26px 'Lato', 'Ubuntu', Arial;
   font-weight: normal;
   color: #cfcfcf;
   text-shadow: white 0px 1px 0px, rgba(0, 0, 0, 0.2) 0 2px 5px;
@@ -772,7 +827,7 @@ pre {
   bottom: 10px;
   position: relative;
   .border-radius(10px);
-  background: #fff;
+  background: rgba(230, 230, 230, 0.6);
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 5px;
   vertical-align: sub;
 }
@@ -850,6 +905,32 @@ img.cutout {
   color: @googleyellow;
 }
 
+
+.bluetheme {
+  color: @googleblue;
+}
+.redtheme {
+  color: @googlered;
+}
+.yellowtheme {
+  color: @googleyellow;
+}
+.grintheme {
+  color: @googlegreen;
+}
+.greentheme {
+  color: @googlegreen;
+}
+.orangetheme {
+  color: @googleorange;
+}
+.darkbluetheme {
+  color: @googledarkblue;
+}
+.purpletheme {
+  color: @googlepurple;
+}
+
 .theme1, .theme2, .theme3, .theme4, .theme5 {
   display: inline-block;
   padding: 3px 5px;
@@ -859,10 +940,27 @@ img.cutout {
 }
 .mark_blue, .mark_red, .mark_yellow, .mark_green, .mark_purple {
   display: inline-block;
-  padding: 3px 5px;
+  padding: 0 15px;
   border-radius: 5px;
   color: #fff;
   .text-shadow(0 1px 4px #000);
+  margin-bottom: 10px;
+}
+pre .mark_blue, pre .mark_red, pre .mark_yellow, pre .mark_green, pre .mark_purple, pre .mark_white, pre .mark_black {
+  .text-shadow(0 0 0 #000);
+}
+
+.mark_white {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+.mark_black {
+  display: inline-block;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #111;
 }
 header {
   vertical-align: top;
@@ -875,7 +973,7 @@ header {
     font-size: 60%;
   }
 
-  .mark_blue, .mark_red, .mark_yellow, .mark_green, .mark_purple {
+  .mark_blue, .mark_red, .mark_yellow, .mark_green, .mark_purple, .mark_white, .mark_black {
     display: block;
     margin-right: 10px;
     font-size: 60%;
@@ -899,19 +997,27 @@ header {
 
 
 .mark_blue {
-  background-color: rgba(38, 102, 204, 0.6);
+  background-color: rgba(38, 102, 204, 0.3);
 }
 .mark_red {
-  background-color: rgba(226, 29, 29, 0.6);
+  background-color: rgba(226, 29, 29, 0.3);
 }
 .mark_yellow {
-  background-color: rgba(247, 204, 34, 0.7);
+  background-color: rgba(247, 204, 34, 0.3);
+}
+.mark_white {
+  background-color: rgba(247, 244, 234, 0.3);
+  color: #111;
+}
+.mark_black {
+  background-color: rgba(47, 44, 34, 0.3);
+  color: white;
 }
 .mark_green {
-  background-color: rgba(65, 154, 12, 0.6);
+  background-color: rgba(65, 154, 12, 0.3);
 }
 .mark_purple {
-  background-color: rgba(85, 26, 139, 0.6);
+  background-color: rgba(85, 26, 139, 0.3);
 }
 /*******************************************************************************
  * BLUEPRINT STYLES
@@ -1415,6 +1521,10 @@ header {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
 }
+#slide-agenda .item:nth-child(5)  {
+  -webkit-animation-delay: 5s;
+  -moz-animation-delay: 5s;
+}
 /*******************************************************************************
  * "DEGREE" SLIDE
  ******************************************************************************/
@@ -1514,3 +1624,42 @@ header {
   .text-shadow(none);
   color: black;
 }
+/* Typography
+---------------------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Ayita Pro SemiBold";
+  src: url('../fonts/AyitaPro-SemiBold.eot');
+}
+
+@font-face {
+  font-family: "Ayita Pro SemiBold";
+  src: url('../fonts/AyitaPro-SemiBold.ttf') format("truetype");
+}  
+
+@font-face {
+  font-family: "museo_slab";
+  src: url('../fonts/museo_slab_300-webfont.eot');
+}
+
+@font-face {
+  font-family: "museo_slab";
+  src: url('../fonts/museo_slab_300-webfont.ttf') format("truetype");
+} 
+
+.font_1 {
+  font-family: "museo_slab";
+}
+
+.font_2 {
+  font-family: "Ayita Pro SemiBold";
+}
+
+.font_3 {
+  font-family:'Bad Script';
+}
+
+.shadow {
+   text-shadow: rgba(1, 1, 2, 0.9) 0 5px 9px;
+}
+

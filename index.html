@@ -22,10 +22,19 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <title>Presentation = { :noobie => 'Ruby' }</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <link rel="stylesheet" href="css/prettify.css">
+  <meta name="description" content="From Noobie to Ruby" />
+  <meta name="keywords" content="ruby, noobie" />
+  <meta name="author" content="Alex Mekhovov">
+
+  <link href='http://fonts.googleapis.com/css?family=Bad+Script' rel='stylesheet' type='text/css'>
+
+  <!-- <link rel="stylesheet" href="css/prettify.css"> -->
+  <link rel="stylesheet" href="css/tomorrow-night-bright.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet/less" type="text/css" href="css/slide-presentation.less">
   <link rel="stylesheet/less" type="text/css" href="css/slide-content.less">
+  <link rel="stylesheet/less" type="text/css" href="css/style.css?v=1">
+
 </head>
   <body>
     <script type="text/html">
@@ -38,6 +47,20 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       </html>
     </script>
 
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35520302-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
     <div id="content" class="hidden">
       <div id="bg-pattern" class="background"></div>
       <div id="bg-white" class="background"></div>
@@ -48,13 +71,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <div id="bg-google-green" class="background"></div>
       <div id="bg-google-yellow" class="background"></div>
       <div id="bg-google-red" class="background"></div>
-      <div id="bg-binary" class="background"></div>
-      <div id="bg-file" class="background"></div>
-      <div id="bg-clutter" class="background"></div>
-      <div id="bg-filecabinets" class="background"></div>
-      <div id="bg-audio" class="background"></div>
-      <div id="bg-declarative" class="background"></div>
-      <div id="bg-drawline" class="background"></div>
       <div id="bg-degree" class="background"></div>
 
       <div id="slide002_bg" class="background"></div>
@@ -77,9 +93,12 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 <div id="bg_ruby_language" class="background"></div>
 <div id="bg_ruby_what_is_2" class="background"></div>
 
-<div id="bg_ror_1" class="background"></div>
 <div id="bg_scene" class="background"></div>
+<div id="bg-about_me" class="background"></div>
 
+      <div id="bg-01" class="background"></div>
+      <div id="bg-02" class="background"></div>
+      <div id="bg-05" class="background"></div>
 
 <!=========================================== The Beginning ===================================================
  *
@@ -87,141 +106,34 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
  *
 -->
 
-<!--------------------------------------- Slide 1 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
- * slide001 | Preflight
- *
--->
-<div class="slide transparent centercontents" id="slide-preflight"  data-backgroundid="bg_striped_blue">
-  <section class="white_text">
-    <h2>Preflight</h2>
-    <div id="browser-webkit" class="hidden good feature">
-      <div><img src='images/icons/ok.png'/> Webkit</div>
-    </div>
-    <div id="browser-mozilla" class="hidden warning feature">
-      <div><img src='images/icons/warning.png'/> Mozilla</div>
-      <div class="explanation">
-        You are running a Mozilla browser.  While such browsers generally have
-        excellent support for HTML5 features, this presentation has only
-        been tested using WebKit browsers such as
-        <a href="http://www.google.com/chrome">Google Chrome</a> or
-        <a href="http://www.apple.com/safari/">Safari</a>.
-        You should still be able to navigate the slides by using left/right
-        arrow keys, but will currently see display errors with regard
-        to the 3d rendering of the slides and some demo content.
-      </div>
-    </div>
-    <div id="browser-other" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> Other browser</div>
-      <div class="explanation">
-        You are running a browser that has not been tested with this
-        presentation.  You may not be able to run some or all of the samples
-        listed here.  While we want to add support for as many browsers as
-        possible, currently we only support WebKit-based browsers such as
-        <a href="http://www.google.com/chrome">Google Chrome</a> or
-        <a href="http://www.apple.com/safari/">Safari</a>.
-      </div>
-    </div>
-    <div id="feature-webgl" class="hidden good feature">
-      <div><img src='images/icons/ok.png'/> WebGL: available</div>
-    </div>
-    <div id="feature-no-webgl" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> WebGL: not supported</div>
-      <div class="explanation">
-        You will not be able to see the WebGL demos later in this slide deck.
-      </div>
-    </div>
-    <div id="feature-notification" class="hidden">
-      <div id="notification-on" class='hidden warning feature'>
-        <div><img src='images/icons/warning.png'/> Notification permission incorrect</div>
-        <div class="explanation">
-          You have granted permission for this page to show notifications.
-          If you intended to demo the request permission functionality, you
-          may want to clear this permission by clicking
-          <a href="javascript:resetNotifications();">here</a> and removing
-          the permission.
-        </div>
-      </div>
-      <div id="notification-off" class='hidden good feature'>
-        <div><img src='images/icons/ok.png'/> Notification permission correct</div>
-      </div>
-    </div>
-    <div id="feature-no-notification" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> No notification</div>
-      <div class="explanation">
-        Your browser does not support displaying notifications.  Currently,
-        only <a href="http://www.google.com/chrome">Google Chrome</a>
-        will support this functionality.
-      </div>
-    </div>
-    <div id="feature-file" class="hidden good feature">
-      <div><img src='images/icons/ok.png'/> File APIs: available</div>
-    </div>
-    <div id="feature-no-file" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> File APIs are not supported</div>
-      <div class="explanation">
-        Your browser does not support one or more of the following APIs:
-        <code>File</code>, <code>FileList</code>, <code>FileReader</code>.
-      </div>
-    </div>
-    <div id="feature-filesystem" class="hidden good feature">
-      <div><img src='images/icons/ok.png'/> File System API: available</div>
-    </div>
-    <div id="feature-no-filesystem" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> File System API: not supported</div>
-      <div class="explanation">
-        Your browser does not support the File System API for
-        reading/writing files and directories.
-      </div>
-    </div>
-    <div id="feature-filesystem-quota" class="hidden warning feature">
-      <div><img src='images/icons/warning.png'/> File System API: partial support</div>
-      <div class="explanation">
-        The File System API are available in your browser, but write access is
-        unavailable. Are you running Google Chrome with the <code>--unlimited-quota-for-files</code> flag?
-      </div>
-    </div>
-    <div id="feature-web-audio" class="hidden good feature">
-      <div><img src='images/icons/ok.png'/> Web Audio API: available</div>
-    </div>
-    <div id="feature-no-web-audio" class="hidden bad feature">
-      <div><img src='images/icons/error.png'/> Web Audio API: not supported</div>
-      <div class="explanation">
-        Your browser does not support the <a href="http://chromium.googlecode.com/svn/trunk/samples/audio/specification/specification.html" target="_blank">Web Audio API</a>.
-        If using Google Chrome, you need Mac OSX and to enable the API in <code>about:flags</code>.
-      </div>
-    </div>
-  </section>
-  <section class="white_text">
-        <br><br><br><br>
-      If things look good, press <span class="key">→</span> to move on.
-  </section>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
-
-
-<!--------------------------------------- Slide 2 -------------------------------------------------------
- *
- * Controls
+ *                           ........    1-st slide   ..........
  *
 -->
-<div class="slide transparent segue centercontents" data-backgroundid="slide002_bg">
-  <aside class="note white_text">
-    <section>
-      Welcome! (This field is for presenter notes and commentary.)
-    </section>
-  </aside>
-  <section class="white_text">
-    <h2>Controls</h2>
-    <ul>
+
+<div class="slide transparent centercontents" id="slide-preflight"  data-backgroundid="bg-01">
+  <section class="white_text_large">
+    <h2 style="font-size:65px;font-family:'Cabin Sketch';text-shadow: black 1px 2px 2px; color:orange">Controls</h2>
+    <ul style="font-family:'Cabin Sketch';text-shadow: black 1px 2px 2px;font-size:35px;">
       <li>Space or <span class="key">&larr;</span> / <span class='key'>&rarr;</span> to move around</li>
       <li><span class="key">Ctrl/Command</span> / <span class='key'>–</span> or <span class='key'>+</span> to zoom in and out if slides don’t fit</li>
-      <li><span class="key">N</span> to show/hide speaker notes</li>
-      <li><span class="key">H</span> to highlight important elements in code snippets</li>
+      <li><span class="key">N</span> to show/hide notes <span class="key">H</span> to highlight elements</li>
     </ul>
+    <br>
+      <p style="font-family:GoodDog; color:yellow; font-size:50px;text-shadow: black 1px 2px 2px;">If things look good, press <span class="key">→</span> to move on.</p>
   </section>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  <br><br><br><br><br><br><br><br><br><br>
 </div>
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ *                           ........    Title   ..........
+ *
+-->
+
 
 
 
@@ -236,7 +148,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <img src="images/got_rot.png" style="width:550px;margin-top:-50px">
   </section>
   <section>
-    <strong>Not</strong> a <strong>boooring</strong> presentation about <strong>Ruby</strong> and <strong>Ruby on Rails</strong><br>
+    <!-- <strong>Not</strong> a <strong>boooring</strong> presentation about <strong>Ruby</strong> and <strong>Ruby on Rails</strong><br> -->
   </section>
  
 </div>
@@ -264,26 +176,69 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
 
 
-
-<!--------------------------------------- Slide 5 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Today's Agenda
+ *                           ........    about me   ..........
  *
 -->
-<div class="slide centercontents" id="slide-agenda" data-backgroundid="bg-pattern">
-  <header>Today's agenda</header>
+<div class="slide transparent image" data-backgroundid="bg-about_me">
+  <div data-build>
+    <section data-auto style="background:none">
+    <span style="margin-left:130px;">
+      <div class="topmic">
+        <a style="text-shadow: black 1px 2px 2px; color:orange" href="http://about.me/mekhovov" ><h1 style="margin-left:0px;margin-top:-40px;font-size:65px;font-family:'destroy';text-shadow: black 1px 2px 2px; color:orange">Alexander Mekhovov</h1></a>
+
+        <h1 style="margin-left:0px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Ruby on Rails Developer at <a style="color:yellow; margin-left:10px;" href="http://www.softserveinc.com" target="_blank">SoftServe</a>.</h1>
+
+        <h1 style="margin-left:0px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Co-Organizer and Speaker at <a style="color:yellow; margin-left:10px;" href="http://pacemaker.softserve.ua" target="_blank">Pacemaker - IT Conference</a>.</h1>
+
+        <h1 style="margin-left:0px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Drive Ruby Courses in <a style="color:yellow; margin-left:10px;" href="http://softserve.ua/en/university/it-academy" target="_blank">SoftServe IT Academy</a>.</h1>
+
+          <h1 style="margin-left:0px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Involved in growing <a style="color:yellow; margin-left:10px;" href="http://www.facebook.com/RailsWay" target="_blank">Ruby Community</a> in Dnipro.</h1>
+
+          <h1 style="margin-left:0px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Co-organizer and coach at <a style="color:yellow; margin-left:10px;" href="http://railsgirls.com/dnipropetrovsk" target="_blank">RailsGirls</a> event.</h1>
+
+          <h1 style="margin-left:140px;margin-top:-10px;font-size:45px;font-family:'GoodDog';text-shadow: black 1px 2px 2px; color:white">Speaker at <a style="color:yellow; margin-left:10px;" href="http://ukraine.itweekend.com.ua" target="_blank">IT-Weekend Conference</a>.</h1>
+          
+      </div>
+    </span>
+    <img style="position:absolute; left:0px; bottom:0px; max-height:130px" src="/images/qr.png"></img>
+    </section>
+  </div>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ *                           ........    Agenda   ..........
+ *
+-->
+<div class="slide transparent centercontents slide-text agenda" id="slide-agenda" data-backgroundid="bg-01">
   <section>
-    <div class="item">
-      <img src="images/ico_ruby.png" />
-      <span class="filetheme"><b>Ruby</b> Programming Language</span>
+    <header>AGENDA</header>
+    <div class="item" style="margin-top: 20px; margin-left:-130px">
+      <img style="width:130px" src="images/ico_ruby.png" />
+      <span class="grintheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">What is Ruby ? </span>
     </div>
-    <div class="item">
-      <img src="images/ico_ror.png" />
-      <span class="graphicstheme"><b>Ruby on Rails</b> Framework</span>
+    <div class="item" style="margin-top: 0px; margin-left:-130px">
+      <img style="width:130px" src="images/ico_ruby.png" />
+      <span class="redtheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Basics</span>
     </div>
+    <div class="item" style="margin-top: 0px; margin-left:-130px">
+      <img style="width:130px" src="images/ico_ruby.png" />
+      <span class="bluetheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Advanced</span>
+    </div>
+    <!-- <div class="item" style="margin-top: 0px; margin-left:-130px">
+      <img style="width:130px" src="images/topic_4.png" />
+      <span class="yellowtheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">What is <b>JavaScript</b> ?</span>
+    </div> -->
 
   </section>
 </div>
+
+
 
 
 <!--------------------------------------- Slide 6 -------------------------------------------------------
@@ -297,12 +252,12 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <section>
     <div class="profile">
       <img src="images/matz.jpg" /><br>
-      <span class="name bidelman"><b>Matz</b> Yukihiro Matsumoto</span><br>
+      <span class="name bidelman"><b>matz</b> Yukihiro Matsumoto</span><br>
       <a target="_blank" href="http://www.ruby-lang.org/en/" class="twitter"><img src="images/ico_ruby.png" ></img>Ruby</a>
     </div>
     <div class="profile">
       <img src="images/dhh.jpg" /><br>
-      <span class="name kurrik"><b>Dhh</b> David Heinemeier Hansson</span><br>
+      <span class="name kurrik"><b>dhh</b> David Heinemeier Hansson</span><br>
       <a target="_blank" href="http://rubyonrails.org/" class="twitter">Rails<img src="images/ico_ror.png"></img></a>
     </div>
   </section>
@@ -312,15 +267,15 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
 
 
+
 <!--------------------------------------- Slide 7 -------------------------------------------------------
  *
- * TOPIC 1: Ruby
+ * Ruby 
  *
 -->
-<div class="slide transparent segue centercontents" data-backgroundid="bg-ruby">
-  <h1>Ruby</h1>
-  <img src="images/ico_ruby.png" style="width: 300px;">
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="slide transparent  centercontents slide-text" data-backgroundid="bg-02">
+  <h1><header style="color:red; font-size:150px; margin-top:-150px;">Ruby</header></h1>
+  <img src="images/ico_ruby.png" style="width: 270px;">
 </div>
 
 
@@ -345,6 +300,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
 
 
+
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
  * What is Ruby?
@@ -358,20 +314,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </div>
 </div>
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
- *
- * What Is Ruby?
- *
-
-<div class="slide centercontents" >
-  <header>What Is Ruby?</header>
-  <section>
-    <div style="font-size:130%;">
-      <p>Ruby is a <span class="mark_green">object-oriented</span> programming language.</p>
-    </div>
-  </section>
-</div>
--->
 
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
@@ -399,21 +341,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </div>
 </div>
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
- *
- * What Is Ruby? dynamic
- *
-
-<div class="slide centercontents" >
-  <header>What Is Ruby?</header>
-  <section>
-    <div style="font-size:130%;">
-      <p>Ruby is a <span class="mark_red">dynamic</span>,  <span class="mark_green">object-oriented</span></p>
-      <p>programming language.</p>
-    </div>
-  </section>
-</div>
--->
 
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
@@ -428,22 +355,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </div>
 </div>
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
- *
- * What Is Ruby? reflective
- *
-
-<div class="slide centercontents">
-  <header>What Is Ruby?</header>
-  <section>
-    <div style="font-size:130%;">
-      <p>Ruby is a <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
-      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span></p>
-      <p>programming language.</p>
-    </div>
-  </section>
-</div>
--->
         
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
@@ -458,24 +369,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </div>
 </div>
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
- *
- * What Is Ruby? lightweight
- *
-
-<div class="slide transparent centercontents">
-  <header>What Is Ruby?</header>
-  <section>
-    <div style="font-size:130%;">
-      <p>Ruby is a <span class="mark_yellow">lightweight</span>, <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
-      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span></p>
-      <p>programming language.</p>
-    </div>
-  </section>
-</div>
--->
-
-        
 <!--------------------------------------- Slide 8 -------------------------------------------------------
  *
  * What is Ruby? functional
@@ -488,25 +381,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     </section>
   </div>
 </div>
-
-<!--------------------------------------- Slide 9 -------------------------------------------------------
- *
- * What Is Ruby? functional
- *
-
-<div class="slide centercontents">
-  <header>What Is Ruby?</header>
-  <section>
-    <div style="font-size:130%;">
-      <p>Ruby is a <span class="mark_yellow">lightweight</span>, <span class="mark_red">dynamic</span>,  <span class="mark_purple">reflective</span>,</p>
-      <p> <span class="mark_purple">general purpose</span> <span class="mark_green">object-oriented</span> </p>
-      <p>(<span class="mark_blue">and slightly functional</span>) programming language.</p>
-      <p></p>
-    </div>
-  </section>
-</div>
--->
-
 
 
 
@@ -572,35 +446,50 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
 
 
-
-        
-<!--------------------------------------- Slide 9 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Some Ruby History
  *
 -->
-<div class="slide centercontents">
-  <header>Some Ruby History</header>
-  <section>
-    <ul class="large">
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Some Ruby <span class="redtheme"> History </span> </header>
+  <section style="font-size:36px;">
+    <ul>
       <li><span class="mark_blue">Ruby</span> was developed in 1993 by Yukihiro “Matz” Matsumoto</li>
       <li>His intention was to create “a scripting language more powerful than <span class="mark_yellow">Perl</span>, and more object-oriented than <span class="mark_yellow">Python</span>”</li>
       <li>Bonus: Unlike Perl, you code doesn’t look like a <span class="mark_red">giant</span> <span class="mark_red">regular</span> <span class="mark_red">expression</span> when you’ve finished</li>
 
     </ul>
+    
   </section>
 </div>
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Not like this
+ * 
  *
 -->
-<div class="slide centercontents">
-  <header>Not like this</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Not like  <span class="redtheme"> this </span> </header>
   <section>
 
-<pre style="font-size:11px">
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+    
+<pre style="font-size:10px">
   !/usr/bin/perl -w
 
                                             sub j(\$){($
@@ -648,21 +537,32 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
                    #liverpole                                  @@@@@@@
                 #@@@@@@@@@@@
 </pre>
-
+    
   </section>
 </div>
 
 
-<!--------------------------------------- Slide 9 -------------------------------------------------------
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Like this
+ * 
  *
 -->
-<div class="slide centercontents">
-  <header>Like this</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Like <span class="redtheme"> this </span>  </header>
   <section>
 
-<pre style="font-size:22px">
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+    
+<pre>
 <b>I</b> = []; <b>fit</b> = [:<b>your</b>, :<b>offer</b>, ' http://www.standoutjobs.com/jobs.php?id=1409']
 <b>just</b> = <b>checkout</b> = %w(macournoyer <b>cv</b>)
 its = <b>you</b> = <b>me</b> = <b>1_000_000_000</b> #<b>$</b>
@@ -672,7 +572,7 @@ class Array
     $<b>my</b> = <b>self</b>; <b>love</b>='<b>creating world</b>'.class.<b>new</b> '<b>stuff</b>'
   end
   def see _for = :yourself
-    `open http://#{$my.join '.com/'}/`
+    'open http://#{$my.join '.com/'}/'
   end
   alias :am :to_a
   alias :in? :include?
@@ -683,7 +583,61 @@ end
 <b>its</b>.<b>upto</b>(<b>you</b>) <b>do</b> |<b>i</b>| <b>fit</b>.<b>in?</b> :StandoutJobs
    <b>just</b>.<b>send</b> :<b>me</b>, :<b>an</b> => '<b>email</b>'
 <b>end</b>; %<b>w</b>(<b>e</b> <b>ll</b>).<b>see</b> <b>if</b> <b>I</b>.<b>can</b> :<b>help</b> => <b>you</b>
+</pre>
+    
+  </section>
+</div>
 
+
+
+
+<!--------------------------------------- Slide 7 -------------------------------------------------------
+ *
+ * Ruby 
+ *
+-->
+<div class="slide transparent  centercontents slide-text" data-backgroundid="bg-02">
+  <h1><header style="color:orange; font-size:150px; margin-top:-150px;">Ruby Basics</header></h1>
+  <img src="images/ico_ruby.png" style="width: 270px;">
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Hello <span class="redtheme"> World </span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px">
+puts "Hello World"
+
+
+➜  ~ ruby .test.rb
+</pre>
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+<pre style="font-size:25px">
+#!/usr/bin/ruby
+
+puts "Hello World"
+
+
+➜  ~  ./test.rb
 </pre>
 
   </section>
@@ -691,12 +645,1271 @@ end
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header><span class="redtheme"> Interactive </span> Ruby </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px">
+➜  ~  irb
+
+1.9.3-p125 :001 > puts "Hello World!"
+
+Hello World!
+
+ => nil 
+
+1.9.3-p125 :002 > 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>The <span class="redtheme"> Basic Types </span> </header>
+  <section>
+
+
+<img src="images/ruby/class_hierarchy.png" style="height:550px;">
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Numbers </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+num = 81
+
+6.times do
+  puts "#{num.class}: #{num}"
+  num *= num
+end
+</pre>
+
+<pre  style="font-size:18px" >
+Fixnum: 81
+Fixnum: 6561
+Fixnum: 43046721
+Fixnum: 1853020188851841
+Bignum: 3433683820292512484657849089281
+Bignum: 11790184577738583171520872861412518665678211592275841109096961
+</pre>
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header><span class="redtheme"> Numbers </span> conversion </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+1 + 2       # => 3
+1 + 2.0     # => 3.0
+1.0 + 2     # => 3.0
+</pre>
+
+<pre style="font-size:25px" >
+1.0 / 2     # => 0.5
+1 / 2.0     # => 0.5
+1 / 2       # => 0
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> Arithmetic </span> operations</header>
+  <section>
+
+
+<img src="images/ruby/arithmetic_operations.png" style="height:550px;">
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> Assignment </span> operations</header>
+  <section>
+
+
+<img src="images/ruby/aggignment_operations.png" style="height:550px;">
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Numeric <a href="http://www.ruby-doc.org/core-1.9.3/Numeric.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Numeric.html</a></h1>
+
+    <h1> Integer <a href="http://www.ruby-doc.org/core-1.9.3/Integer.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Integer.html</a></h1>
+
+    <h1> Float <a href="http://www.ruby-doc.org/core-1.9.3/Float.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Float.html</a></h1>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> String  </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+"New string"                    # => New string
+</pre>
+
+<pre style="font-size:25px" >
+"Tro #{Lo * 3} !!"              # => Tro Lo Lo Lo !!
+</pre>
+
+<pre style="font-size:25px" >
+"now is #{def the(a)
+            'the' + a
+          end
+          the('time') } for all good coders.."
+                               
+# => now is the time for all good coders..
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> String   </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+"Seconds/day: #{24*60*60}"      # => Seconds/day: 86400
+
+%{Seconds/day: #{24*60*60}}      # => Seconds/day: 86400
+</pre>
+
+<pre style="font-size:25px" >
+'{Seconds/day: #{24*60*60}'      # => Seconds/day: #{24*60*60}
+
+%q{Seconds/day: #{24*60*60}}     # => Seconds/day: #{24*60*60}
+</pre>
+
+<pre style="font-size:25px" >
+'con' "cat" 'en' "ate"           # => concatenate
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> String  </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+print <<-eos                      
+Double  quoted \ here document.   
+It is #{Time.now}                 
+eos
+
+# => Double  quoted  here document.
+# => It is 2012-10-11 22:53:35 +0300 
+</pre>
+
+<pre style="font-size:25px" >
+print <<-'eos'
+Double  quoted here document.       
+It is #{Time.now}                   
+eos
+
+# => Double  quoted  here document.
+# => It is #{Time.now} 
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> String <a href="http://www.ruby-doc.org/core-1.9.3/String.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/String.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays  </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+[[1,2,3], 10, 3.14, "This is string", barney("pebbles")]
+
+#=> [[1, 2, 3], 10, 3.14, "This is string", "pebbles result"] 
+</pre>
+
+<pre style="font-size:25px" >
+%w(monkey fish lion dog cat -#{Time.now}-)
+
+# => ["monkey", "fish", "lion", "dog", "cat", "-\#{Time.now}-"] 
+</pre>
+<pre style="font-size:25px" >
+%W(monkey fish lion dog cat -#{Time.now}-)
+
+#=> ["monkey", "fish", "lion", "dog", "cat", "-2012-10-11 23:03:18-"] 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays   </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+Array.new(4, "mac")          # => ["mac", "mac", "mac", "mac"] 
+
+Array.new(10){|e| e=e*2 }    # => [0, 2, 4, 6, 8, 10, 12, 14, 16, 18] 
+
+Array(0..9)                  # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays   </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+languages = 'Ruby', 'Java', 'C#', 'PHP' 
+# => ["Ruby", "Java", "C#", "PHP"] 
+</pre>
+
+<pre style="font-size:25px" >
+languages[0]            # => "Ruby" 
+languages[1]            # => "Java" 
+languages[4]            # => nil 
+languages[2..3]         # => ["C#", "PHP"] 
+languages[-2]           # => "C#" 
+languages.sort          # => ["C#", "Java", "PHP", "Ruby"] 
+languages.length        # => 4 
+languages.first         # => "Ruby" 
+languages.last          # => "PHP" 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays   </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+days1 = ['Mon', 'Tue', 'Wed']
+days2 = ['Thu', 'Fri', 'Sat', 'Sun']
+</pre>
+
+<pre style="font-size:25px" >
+days1 + days2
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+
+days1.concat(days2)
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+
+days1 << 'Thu' << 'Fri' << 'Sat' << 'Sun'
+# => ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays   </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:22px" >
+operating_systems = ['Fedora', 'SuSE', 'RHEL', 'Windows', 'MacOS']
+linux_systems = ['RHEL', 'SuSE', 'PCLinuxOS', 'Ubuntu', 'Fedora']
+</pre>
+
+<pre style="font-size:24px" >
+# Union
+operating_systems | linux_systems
+# => ["Fedora", "SuSE", "RHEL", "Windows", "MacOS", "PCLinuxOS", "Ubuntu"] 
+
+# Intersection
+operating_systems & linux_systems      # => ["Fedora", "SuSE", "RHEL"] 
+
+# Difference
+operating_systems - linux_systems      # => ["Windows", "MacOS"] 
+linux_systems - operating_systems      # => ["PCLinuxOS", "Ubuntu"] 
+
+# Uniq
+operating_systems = ['Fedora', 'SuSE', 'MacOS', 'RHEL', 'SuSE', 'Fedora']
+operating_systems.uniq           # => ["Fedora", "SuSE", "MacOS", "RHEL"] 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Arrays  </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+colors = ['red', 'green', 'blue']
+
+colors.push 'indigo'    # => ["red", "green", "blue", "indigo"] 
+colors.push 'violet'    # => ["red","green","blue","indigo","violet"] 
+colors.pop              # => "violet"
+colors.pop              # => "indigo"
+</pre>
+
+<pre style="font-size:25px" >
+colors = ['red', 'green', 'blue']
+
+colors[1..2] = 'orange', 'pink'   # colors: ["red", "orange", "pink"] 
+</pre>
+
+<pre style="font-size:25px" >
+colors = ['red', 'green', 'blue']
+
+colors.delete_at(1)     # colors: ['green', 'blue']
+colors.delete("blue")   # colors: ['green']
+</pre>
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Array <a href="http://www.ruby-doc.org/core-1.9.3/Array.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Array.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Hashes  </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+h = {
+  'dog' => 'canine',
+  'cat' => 'feline',
+  'donkey' => 'asinine',
+  :bird => 'papuga',
+  12 => 'dodecine'
+}
+<span style="font-size: 18px"># => {"dog"=>"canine", "cat"=>"feline", "donkey"=>"asinine", :bird=>"papuga", 12=>"dodecine"} </span>
+</pre>
+
+<pre style="font-size:25px" >
+h.length          # => 4
+h['dog']          # => "canine"
+h[:bird]          # => "papuga"
+h[12]             # => "dodecine"
+</pre>
+
+<pre style="font-size:25px" >
+{dog: 'canine', cat: 'feline'}  # => {:dog=>"canine", :cat=>"feline"} 
+</pre>
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Hash <a href="http://www.ruby-doc.org/core-1.9.3/Hash.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Hash.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Symbols </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+:my_variable        # => :my_variable
+:"Ruby rules"       # => :"Ruby rules"
+</pre>
+
+<pre style="font-size:25px" >
+a = "cat"
+
+:"#{a}sup"          # => :catsup
+:'#{a}sup'          # => :'\#{a}sup'
+</pre>
+
+<pre style="font-size:25px" >
+%s{symbol}          # => :symbol
+%s{ symbol with spaces}       # => :" symbol with spaces"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Symbol <a href="http://www.ruby-doc.org/core-1.9.3/Symbol.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Symbol.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ranges </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+1..10        # creates a range from 1 to 10 inclusive
+1...10       # creates a range from 1 to 10
+</pre>
+
+<pre style="font-size:25px" >
+(1..10).to_a        # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+(1...10).to_a       # => [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+</pre>
+
+<pre style="font-size:25px" >
+(a..l).to_a         
+# => ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
+
+('cab'...'car').to_a       
+# => ["cab", "cac", "cad", "cae", "caf", "cag", "cah", "cai", "caj", 
+#     "cak", "cal", "cam", "can", "cao", "cap", "caq"] 
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ranges </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+words = 'cab'..'car'
+
+words.min                 # => 'cab'
+words.max                 # => 'car'
+words.include?('can')     # => true
+</pre>
+
+<pre style="font-size:25px" >
+words.reject {|subrange| subrange > 'caf' }
+# => ["cab", "cac", "cad", "cae", "caf"] 
+</pre>
+
+<pre style="font-size:25px" >
+words.each {|word| puts 'Hello ' + word }
+
+# => Hello cab
+# => Hello cac
+# ...
+# => Hello car
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Range <a href="http://www.ruby-doc.org/core-1.9.3/Range.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Range.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * Dynamic Typing   TODO: add duck pick
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Dynamic Typing</header>
+  <section>
+    
+      <h1>If it <span class="mark_blue">looks like</span> a duck, <span class="mark_blue">quacks</span> like a duck, then it’s a <span class="mark_purple">duck</span></h1>
+      <h1>The interpreter will <span class="mark_red">assign types</span> to variables <span class="mark_red">dynamically</span> based on context</h1>
+      <h1>The interpreter can allocate <span class="mark_yellow">more memory</span> for a <span class="mark_yellow">variable</span></h1>
+
+    
+  </section>
+</div> 
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Variables </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+a = 10
+b = 20
+c = 30
+a, b, c = 10, 20, 30
+</pre>
+
+<pre style="font-size:25px" >
+y = 'hello'
+y.class                 # => String
+y = 20 
+y.kind_of? Integer      # => true
+y.class                 # => Fixnum
+y.to_f                  # => 20.0
+y.to_s                  # => "20"
+defined? y              # "local-variable"
+
+$x = 10
+defined? x              # "global-variable"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * Variable Assignment & Scope
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <header> Variable <span class="redtheme">Assignment</span> and <span class="redtheme">Scope</span> </header>
+  <section>
+    <img src="images/ruby_scope.png" style="width:800px;"></img>
+
+<h1 style="font-size:28px; margin-top:-120px">
+age = 13  -> Assignment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; age += 1  -> Reassignment
+</h1>
+
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def my_new_method(arg1, arg2, arg3)
+  # code goes here
+end
+
+def my_new_method
+  # code goes here
+end
+</pre>
+
+<pre style="font-size:25px" >
+def cool_dude(arg1="Miles", arg2="Coltrane", arg3="Roach")
+  "#{arg1}, #{arg2}, #{arg3}."
+end
+
+cool_dude                            # => "Miles, Coltrane, Roach."
+cool_dude('Bart')                    # => "Bart, Coltrane, Roach."
+cool_dude('Bart', 'Elwood')          # => "Bart, Elwood, Roach."
+cool_dude 'Bart', 'Elwood', 'Linus'  # => "Bart, Elwood, Linus."
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def surround(word, pad_width=word.length/2)
+  "[" * pad_width + word = "]" * pad_width
+end
+</pre>
+
+<pre style="font-size:25px" >
+surround 'elephant'             # => "[[[[elephant]]]]"
+surround 'fox'                  # => "[fox]"
+surround 'fox', 10              # => "[[[[[[[[[[fox]]]]]]]]]]"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def varrargs(arg1, *rest)
+  "arg1=#{arg1}. rest=#{rest.inspect}"
+end
+</pre>
+
+<pre style="font-size:25px" >
+varrargs 'one'                 # => "arg1=one. rest=[]"
+varrargs 'one', 'two'          # => "arg1=one. rest=['two']"
+varrargs 'one', 'two', 'three' # => "arg1=one. rest=['two', 'three']"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def split_apart(first, *splat, last)
+  "first=#{first.inspect} splat=#{splat.inspect} last=#{last.inspect}"
+end
+</pre>
+
+<pre style="font-size:25px" >
+split_apart 1, 2                  # => "first=1 splat=[] last=2"
+split_apart 1, 2, 3               # => "first=1 splat=[2] last=3"
+split_apart 1, 2, 3, 4            # => "first=1 splat=[2, 3] last=4"
+</pre>
+
+
+<!-- <pre style="font-size:25px" >
+def split_apart(first, *, last)
+  # ...
+end
+</pre> -->
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ *                           ........    QUESTIONS   ..........  
+ *
+-->
+
+<div class="slide transparent image" data-backgroundid="bg-02">
+  <div data-build>
+    <section data-auto style="background:none">
+    <span style="margin-left:130px">
+      <div class="topmic">
+        <h1 style="margin-left:230px;margin-top:200px;font-size:85px;font-family:'UglyQua';text-shadow: #111 2px 4px; color:orange">QUESTIONS ?</h1>
+      </div>
+    </span>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+
+
+
+
+
+<!--------------------------------------- Slide 7 -------------------------------------------------------
+ *
+ * Ruby Advanced
+ *
+-->
+<div class="slide transparent  centercontents slide-text" data-backgroundid="bg-02">
+  <h1><header style="color:yellow; font-size:150px; margin-top:-150px;">Ruby Advanced</header></h1>
+  <img src="images/ico_ruby.png" style="width: 270px;">
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<!-- <div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+
+    <header>Basic <span class="redtheme">Literals</span> </header>
+  <section>
+
+
+    String, Symbol
+<pre style="font-size:22px">
+"Ukraine on Rails".split(' ') #=> ["Ukraine", "on", "Rails"]
+
+%("Go back," he said irritably.).size #=> 29
+
+do_something_with(:this_symbol)
+</pre>
+
+    Fixnum, Float
+<pre style="font-size:25px">
+5.times do
+  puts "Simple is Beautiful!"
+end
+        
+12.5.between?(12, 13) #=> true
+</pre>
+
+  </section>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Basic Literals
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Basic Literals</header>
   <section>
     <ul class="large">
@@ -722,15 +1935,15 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Basic Literals 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Basic Literals</header>
   <section>
     <ul class="large">
@@ -756,33 +1969,17 @@ Hash.new('and', :can_be, 'created', 'several ways')
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
- *
- * Variable Assignment & Scope
- *
--->
-<div class="slide centercontents" style="background: url('images/bgs/blueprint2.jpg')">
-  <header class="white_text">Variable Assignment & Scope</header>
-  <section>
-    <img src="images/ruby_scope.png" style="width:830px;"></img>
-
-<pre style="font-size:28px; background-color:rgba(255, 255, 255, 0.7); margin-top:-120px">
-age = 13  -> Assignment              age += 1  -> Reassignment
-</pre>
-
-  </section>
-</div>
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Control Structures
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Control Structures</header>
   <section>
     <ul class="large">
@@ -813,16 +2010,16 @@ car.drive 40 unless car.needs_gas?
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Control Structures 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Control Structures</header>
   <section>
     <ul class="large">
@@ -853,17 +2050,17 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Blocks
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Blocks</header>
   <section>
     <ul class="large">
@@ -885,16 +2082,16 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Blocks 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Blocks</header>
   <section>
     <ul class="large">
@@ -918,15 +2115,15 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Methods
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Methods</header>
   <section>
     <ul class="large">
@@ -952,16 +2149,16 @@ say "Okay!" #=> Okay!
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Methods 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Methods</header>
   <section>
     <ul class="large">
@@ -989,18 +2186,18 @@ end
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Classes
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Classes</header>
   <section>
     <ul class="large">
@@ -1024,16 +2221,16 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Classes 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Classes</header>
   <section>
     <ul class="large">
@@ -1058,14 +2255,14 @@ vroom.drive '20km' # Drove a 2008 Audi A4 20km
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
-<!--------------------------------------- Slide 11 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Really Object Oriented
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Really Object Oriented </header>
   <section>
  <ul class="large">
@@ -1085,14 +2282,14 @@ vroom.drive '20km' # Drove a 2008 Audi A4 20km
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Enumerable
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Enumerable</header>
   <section>
     <ul class="large">
@@ -1116,15 +2313,15 @@ end
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Enumerable 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Enumerable</header>
   <section>
     <ul class="large">
@@ -1150,16 +2347,16 @@ end
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Mixins
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Mixins</header>
   <section>
     <ul class="large">
@@ -1183,15 +2380,15 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Mixins 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Mixins</header>
   <section>
     <ul class="large">
@@ -1220,32 +2417,16 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
-<!--------------------------------------- Slide 12 -------------------------------------------------------
- *
- * Dynamic Typing   TODO: add duck pick
- *
--->
-<div class="slide centercontents">
-  <header>Dynamic Typing</header>
-  <section>
-    <ul class="large">
-      <li>If it <span class="mark_blue">looks like</span> a duck, <span class="mark_blue">quacks</span> like a duck, then it’s a <span class="mark_purple">duck</span></li>
-      <li>The interpreter will <span class="mark_red">assign types</span> to variables <span class="mark_red">dynamically</span> based on context</li>
-      <li>The interpreter can allocate <span class="mark_yellow">more memory</span> for a <span class="mark_yellow">variable</span></li>
 
-    </ul>
-  </section>
-</div>
-
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Dynamic Features
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Dynamic Features</header>
   <section>
     <ul class="large">
@@ -1272,16 +2453,16 @@ obj.yell # My name is John!!!
 </pre>
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
-<!--------------------------------------- Slide 10 -------------------------------------------------------
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
  * Dynamic Features 2
  *
 -->
-<div class="slide centercontents">
+<!-- <div class="slide centercontents">
   <header>Dynamic Features</header>
   <section>
     <ul class="large">
@@ -1306,43 +2487,71 @@ end
 
     </ul>
   </section>
-</div>
+</div> -->
 
 
 
         
 
 
-        
 
 
 
-<!--------------------------------------- Slide ??? -------------------------------------------------------
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
  *
- * TOPIC 2: Ruby on Rails
+ * 
  *
 -->
-<div class="slide transparent segue centercontents" data-backgroundid="bg-ruby">
-  <h1>Ruby on Ralis</h1>
-  <img src="images/ico_ror.png" style="width: 300px;">
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+              ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+    <header>Links</header>
+  <section style="font-size:39px">
+
+    
+        <a href="http://tryruby.org" target="_blank">• http://tryruby.org</a><br>
+        <a href="http://www.codeschool.com/courses/ruby-bits" target="_blank">• http://www.codeschool.com/courses/ruby-bits</a><br>
+        <a href="http://www.codecademy.com/tracks/ruby" target="_blank">• http://www.codecademy.com/tracks/ruby</a><br>
+        <a href="http://rubykoans.com" target="_blank">• http://rubykoans.com</a><br>
+        <a href="http://mislav.uniqpath.com/poignant-guide/" target="_blank">• Why's guide to Ruby</a><br>
+        <a href="http://hackety.com" target="_blank">• http://hackety.com </a><br>
+      
+      <a href="http://noobie2ruby.pp.ua" target="_blank">• http://noobie2ruby.pp.ua</a><br>
+      <a href="https://github.com/mekhovov/From-Noobie-to-Ruby" target="_blank">• This presentation source</a><br>
+      <a href="http://www.htmlfivewow.com/">• http://www.htmlfivewow.com</a>
+
+
+  </section>
 </div>
 
 
-<div class="slide transparent image" data-backgroundid="bg-ror">
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ *                           ........    QUESTIONS   ..........  
+ *
+-->
+
+<div class="slide transparent image" data-backgroundid="bg-02">
   <div data-build>
-    <section class="bottomWide dark" data-auto>
-      <h1>RoR</h1>
+    <section data-auto style="background:none">
+    <span style="margin-left:130px">
+      <div class="topmic">
+        <h1 style="margin-left:230px;margin-top:200px;font-size:85px;font-family:'UglyQua';text-shadow: #111 2px 4px; color:orange">QUESTIONS ?</h1>
+      </div>
+    </span>
     </section>
   </div>
 </div>
-
-
-
-
-
-
-
 
 
 
@@ -1366,8 +2575,18 @@ end
     </div>
     <div id="overlay"></div>
 
+    <script src="js/jquery.js" ></script>
     <script src="js/libs/less-1.0.41.min.js" async></script>
-    <script src="js/prettify/prettify.js" async></script>
+    <!--<script src="js/prettify/prettify.js" async></script>
+    <script src="js/prettify/lang-rb.js" async></script>-->
+    <script src="js/highlight.pack.js" ></script>
+<script>
+$(document).ready(function() {
+  hljs.initHighlightingOnLoad();
+  $('pre').each(function(i, e) {hljs.highlightBlock(e)});
+});
+
+</script>
     <script src="js/libs/glMatrix-0.9.5.min.js" async></script>
     <script src="js/config.js" defer></script>
     <!--<script src="socket.io/socket.io.js" defer></script>-->
@@ -1375,17 +2594,6 @@ end
     <script src="js/slide-presentation.js" defer></script>
     <script src="js/slide-content.js" defer></script>
 
-    <script>
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-23384572-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
 
     <!--[if IE]>
     <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>

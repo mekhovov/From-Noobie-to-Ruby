@@ -1,0 +1,92 @@
+/* Tomorrow Night Bright Theme */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+.tomorrow-comment, pre .comment, pre .title {
+  color: #969896;
+}
+
+.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: #d54e53;
+}
+
+.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: #e78c45;
+}
+
+.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
+  color: #e7c547;
+}
+
+.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: #b9ca4a;
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: #70c0b1;
+}
+
+.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: #7aa6da;
+}
+
+.tomorrow-purple, pre .keyword, pre .javascript .function {
+  color: #c397d8;
+}
+
+pre code {
+  display: block;
+  background: black;
+  color: #eaeaea;
+  padding: 0.5em;
+}
+
+
+
+
+pre {
+  background:#333;
+  color:#FFF;
+  padding:5px;
+  white-space:pre;
+
+  -webkit-border-radius:5px; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+    border-radius:5px; /* Opera 10.5, IE9, Saf5, Chrome, FF4+, iOS 4, Android 2.1+ */
+}
+pre code {
+  background:none;
+}
+
+pre .string { color:#8F9D6A; }
+pre .keyword,
+pre .attribute,
+pre .lisp .title,
+pre .nginx .title,
+pre .request,
+pre .status,
+pre .tag  { color:#CDA869; }
+pre .comment,
+pre .javadoc { color:#777777; }
+pre .literal,
+pre .value { color:#F9EE98; }
+pre .at_rule,
+pre .at_rule .keyword { color:#8693A5; }
+pre .regexp { color:#E9C062; }
+pre .number { color:#D77F61; }
+pre .function .title { color:#AA8253; }
+pre .function .params,
+pre .variable { color:#899AB4; }
+
+/*===== CSS =====*/
+pre .css .id { color:#8B98AB; }
+pre .css .class { color:#9B703F; }
+pre .css .pseudo { color:#8F9D6A; }
+/*===== END CSS =====*/
+
+/*===== JS =====*/
+pre .javascript .keyword { color:#F9EFAC; }
+/*===== END JS =====*/
+
+/*===== XML =====*/
+pre .html .value,
+pre .xml .value { color:#8F9D6A; }
+/*===== END XML =====*/
