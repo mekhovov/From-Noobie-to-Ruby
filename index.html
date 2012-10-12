@@ -82,20 +82,21 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <div id="bg_striped_violet" class="background"></div>
       <div id="bg_striped_grey" class="background"></div>
 
-<div id="bg_ruby_what_is" class="background"></div>
-<div id="bg_ruby_light" class="background"></div>
-<div id="bg_ruby_functional" class="background"></div>
-<div id="bg_ruby_elegant" class="background"></div>
-<div id="bg_ruby_dynamic" class="background"></div>
-<div id="bg_ruby_reflective" class="background"></div>
-<div id="bg_ruby_os" class="background"></div>
-<div id="bg_ruby_flexible" class="background"></div>
-<div id="bg_ruby_language" class="background"></div>
-<div id="bg_ruby_what_is_2" class="background"></div>
+      <div id="bg_ruby_what_is" class="background"></div>
+      <div id="bg_ruby_light" class="background"></div>
+      <div id="bg_ruby_functional" class="background"></div>
+      <div id="bg_ruby_elegant" class="background"></div>
+      <div id="bg_ruby_dynamic" class="background"></div>
+      <div id="bg_ruby_reflective" class="background"></div>
+      <div id="bg_ruby_os" class="background"></div>
+      <div id="bg_ruby_flexible" class="background"></div>
+      <div id="bg_ruby_language" class="background"></div>
+      <div id="bg_ruby_what_is_2" class="background"></div>
 
-<div id="bg_scene" class="background"></div>
-<div id="bg-about_me" class="background"></div>
+      <div id="bg_scene" class="background"></div>
+      <div id="bg-about_me" class="background"></div>
 
+      <div id="bg-rvm" class="background"></div>
       <div id="bg-01" class="background"></div>
       <div id="bg-02" class="background"></div>
       <div id="bg-05" class="background"></div>
@@ -299,6 +300,13 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 </div>
 
 
+
+
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+<!-- ******************                             What is Ruby ?                          ********************* -->
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
 
 
 <!--------------------------------------- Slide 8 -------------------------------------------------------
@@ -591,6 +599,14 @@ end
 
 
 
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+<!-- ******************                             Ruby Basics                             ********************* -->
+<!-- ************************************************************************************************************ -->
+<!-- ************************************************************************************************************ -->
+
+
+
 <!--------------------------------------- Slide 7 -------------------------------------------------------
  *
  * Ruby 
@@ -601,6 +617,65 @@ end
   <img src="images/ico_ruby.png" style="width: 270px;">
 </div>
 
+
+
+
+
+<!--------------------------------------- Slide 8 -------------------------------------------------------
+ *
+ * What is Ruby?
+ *
+-->
+<div class="slide transparent image" data-backgroundid="bg-rvm">
+  <div data-build>
+    <section class="bottomWide dark" data-auto>
+      <h1>Let's <span class="redtheme"> Install </span> Ruby</h1>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> RVM</span>: Ruby Version Manager</header>
+  <section>
+
+  <a href="https://rvm.io">http://rvm.io</a>
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px">
+curl -L https://get.rvm.io | bash -s stable --ruby
+</pre>
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+<pre style="font-size:25px">
+➜  ~  rvm install 1.9.3
+➜  ~  rvm use 1.9.3
+</pre>
+
+<pre style="font-size:25px">
+➜  ~  rvm gemset create my_project
+➜  ~  rvm gemset use my_project
+</pre>
+
+<pre style="font-size:25px">
+# .rvmrc file
+rvm use ruby-1.9.3-head@my_project
+</pre>
+  </section>
+</div>
 
 
 
@@ -1811,6 +1886,553 @@ end
 
 
 
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods and <span class="redtheme"> Blocks</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def double(p1)
+  yield(p1*2)
+end
+</pre>
+
+<pre style="font-size:25px" >
+double(3) {|val| "I got #{val}" }        # => "I got 6"
+</pre>
+
+
+<pre style="font-size:25px" >
+double("tom") do |val|
+  "Then I got #{val}" 
+end                                      # => "Then I got tomtom"
+</pre>
+  </section>
+</div>
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods and <span class="redtheme"> Blocks</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def try
+  if block_given?
+    yield
+  else
+    'no block'
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+try                     # => "no block"
+try { 'hello' }         # => "hello"
+try do 'hello' end      # => "hello"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> Anonymous</span>  Method</header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+bo = lambda { |param|  puts "You called me with #{param}" }
+</pre>
+
+<pre style="font-size:25px" >
+bo.call 99            # => "You called me with 99" 
+bo.call 'cat'         # => "You called me with cat"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods <span class="redtheme"> Returns Values</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def meth_one
+  "one"
+end
+
+meth_one        # => "one"
+</pre>
+
+<pre style="font-size:25px" >
+def meth_two(arg)
+  if arg > 0  
+    "positive"
+  elsif arg < 0 
+    "negative"
+  else
+    "zero"
+  end
+end
+
+meth_two(23)       # => "positive"
+meth_two(0)        # => "zero"
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Methods <span class="redtheme"> Returns Values</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+def meth_three
+  100.times do |num|
+    square = num * num
+    return num, square if square > 100
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+meth_three        # => [32, 1024]
+</pre>
+
+<pre style="font-size:25px" >
+num, square = meth_three
+
+num              # => 32
+square           # => 1024
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  <span class="redtheme"> if </span> Expression </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+a = 5 
+if a == 4 
+  a = 7
+end
+</pre>
+
+<pre style="font-size:25px" >
+if a == 4 then a = 7 end
+</pre>
+
+<pre style="font-size:25px" >
+a = 7 if a == 4
+</pre>
+
+
+<pre style="font-size:25px" >
+unless a == 4
+  a = 7
+end
+
+a # => 7
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  <span class="redtheme"> if </span> - <span class="redtheme"> elsif </span> - <span class="redtheme"> else </span> Expression </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+if expression 
+  # code goes here
+elsif another expression 
+  # code goes here
+elsif another expression 
+  # code goes here
+else
+  # code goes here
+end
+</pre>
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+ <header>  <span class="redtheme"> short if </span>  Expression </header>
+<pre style="font-size:25px" >
+true ? 't' : 'f'        # => 't'
+false ? 't' : 'f'       # => 'f'
+</pre>
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  <span class="redtheme"> case </span> Expression </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+a = 1
+
+r = case a
+  when a < 5
+    puts "#{a} less than 5"
+    "#{a} less than 5"
+  when a == 5
+    puts "#{a} equals than 5"
+    "#{a} equals than 5"
+  when a > 5
+    puts "#{a} greather than 5"
+    "#{a} greather than 5"
+end
+</pre>
+
+<pre style="font-size:25px" >
+r   # => 1 less than 5
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  <span class="redtheme"> case </span> Expression </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+case a
+  when 0..4
+    "#{a} less than 5"
+  when 5
+    "#{a} equals than 5"
+  when 5..10
+    "#{a} greather than 5"
+  else
+    "unexpected value #{a}"
+end
+</pre>
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  <span class="redtheme"> or </span>, <span class="redtheme">  and </span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+nil && 99       # => nil
+false && 99     # => false
+'cat' && 99     # => 99
+
+nil || 99       # => 99
+false || 99     # => 99
+'cat' || 99     # => 'cat'
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Loops <span class="redtheme"> while </span> and <span class="redtheme"> untill </span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+a = 1
+while a < 5
+  puts a
+  a += 1
+end
+</pre>
+
+<pre style="font-size:25px" >
+a = 1
+untill a == 5
+  puts a
+  a += 1
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Loops </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+for i in 1..5 do
+  puts i                  # => 1 2 3 4 5
+end
+
+5.times do |i|
+  puts i                  # => 0 1 2 3 4
+end
+
+1.upto(5) do |i|
+  puts i                  # => 1 2 3 4 5
+end
+
+5.downto(1) do |i|
+  puts i                  # => 5 4 3 2 1
+end
+
+(1..5).each do |i|
+  puts i                  # => 1 2 3 4 5
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Comments </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+# one line comment
+</pre>
+
+
+<pre style="font-size:25px" >
+=begin
+  multy
+  lines
+  comments
+=end
+</pre>
+
+  </section>
+</div>
+
+
+
+
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
  *                           ........    QUESTIONS   ..........  
@@ -1838,6 +2460,7 @@ end
 
 <!-- ************************************************************************************************************ -->
 <!-- ************************************************************************************************************ -->
+<!-- ******************                             Ruby Advanced                          ********************* -->
 <!-- ************************************************************************************************************ -->
 <!-- ************************************************************************************************************ -->
 
@@ -1858,6 +2481,29 @@ end
 
 
 
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+              ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+    <header>ToDo..</header>
+  <section>
+
+    Text goes here..
+
+  </section>
+</div>
 
 
 
@@ -2521,6 +3167,7 @@ end
         <a href="http://www.codeschool.com/courses/ruby-bits" target="_blank">• http://www.codeschool.com/courses/ruby-bits</a><br>
         <a href="http://www.codecademy.com/tracks/ruby" target="_blank">• http://www.codecademy.com/tracks/ruby</a><br>
         <a href="http://rubykoans.com" target="_blank">• http://rubykoans.com</a><br>
+        <a href="http://ru.wikibooks.org/wiki/Ruby" target="_blank">• Russion Ruby WikiBook</a><br>
         <a href="http://mislav.uniqpath.com/poignant-guide/" target="_blank">• Why's guide to Ruby</a><br>
         <a href="http://hackety.com" target="_blank">• http://hackety.com </a><br>
       
