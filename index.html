@@ -1018,6 +1018,10 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
 'con' "cat" 'en' "ate"           # => concatenate
 </pre>
 
+<pre style="font-size:25px" >
+"Ukraine on Rails".split(' ')    #=> ["Ukraine", "on", "Rails"]
+</pre>
+
   </section>
 </div>
 
@@ -1116,9 +1120,9 @@ eos
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
 <pre style="font-size:25px" >
-[[1,2,3], 10, 3.14, "This is string", barney("pebbles")]
+['this', :is, 1, "Array", [1,2,3], barney("pebbles")]
 
-#=> [[1, 2, 3], 10, 3.14, "This is string", "pebbles result"] 
+#=> ['this', :is, 1, "Array", [1,2,3], "pebbles result"] 
 </pre>
 
 <pre style="font-size:25px" >
@@ -1334,7 +1338,7 @@ colors[1..2] = 'orange', 'pink'   # colors: ["red", "orange", "pink"]
 <pre style="font-size:25px" >
 colors = ['red', 'green', 'blue']
 
-colors.delete_at(1)     # colors: ['green', 'blue']
+colors.delete_at(1)     # colors: ['red', 'blue']
 colors.delete("blue")   # colors: ['green']
 </pre>
   </section>
@@ -1399,14 +1403,14 @@ h = {
 </pre>
 
 <pre style="font-size:25px" >
-h.length          # => 4
+h.length          # => 5
 h['dog']          # => "canine"
 h[:bird]          # => "papuga"
 h[12]             # => "dodecine"
 </pre>
 
 <pre style="font-size:25px" >
-{dog: 'canine', cat: 'feline'}  # => {:dog=>"canine", :cat=>"feline"} 
+{hashes: 1, are: 'unordered'}  # => {:hashes => 1, :are => 'unordered'}
 </pre>
   </section>
 </div>
@@ -1544,7 +1548,7 @@ a = "cat"
 </pre>
 
 <pre style="font-size:25px" >
-(a..l).to_a         
+('a'..'l').to_a         
 # => ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
 
 ('cab'...'car').to_a       
@@ -2433,6 +2437,210 @@ end
 
 
 
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Time </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+time = Time.new
+
+time            # => 2012-10-15 18:09:32 +0300 
+time.year       # => 2012
+time.month      # => 10
+time.day        # => 15
+time.wday       # => 1
+time.yday       # => 289
+time.hour       # => 18
+time.min        # => 9
+time.sec        # => 32
+time.zone       # => "EEST"
+time.to_i       # => 1350313772
+
+time.strftime("%Y-%m-%d %H:%M:%S")  # => "2012-10-15 18:09:32"
+
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Time <a href="http://www.ruby-doc.org/core-1.9.3/Numeric.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Time.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  File </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+File.new("temp.txt", "w")          # => #&lt;File:temp.txt> 
+
+file = File.open("temp.txt", "r")  # => #&lt;File:temp.txt> 
+file.closed?                          # => false
+file.closed?                          # => nil
+File.rename("tempf.txt", "newf.txt")  # => 0
+File.delete "newf.txt"                # => 1
+File.exists? "temp.txt"               # => true
+File.file?(".")                       # => true
+File.directory?(".")                  # => true
+File.readable?("temp.txt")            # => true
+File.writable?("temp.txt")            # => true
+File.executable?("temp.txt")          # => false
+File.ftype("temp.txt")                # => "file"
+File.ftype(".")                       # => "directory"
+
+my_file = File.open("temp.txt")
+
+my_file.each {|line| print line}
+</pre>
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> File <a href="http://www.ruby-doc.org/core-1.9.3/Numeric.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/File.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Dir </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+Dir.entries "."
+
+# => [".", "..", ".git", ".gitignore", ".rvmrc", "app", "config", 
+# "config.ru", "db", "doc", "Gemfile", "Gemfile.lock", "lib", 
+# "log", "public", "Rakefile", "README.textile", "script", 
+# "test", "tmp", "vendor"] 
+
+Dir.foreach('.') {|file| puts file}
+
+</pre>
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> More</span>..</header>
+  <section>
+
+
+    <h1> Dir <a href="http://www.ruby-doc.org/core-1.9.3/Numeric.html" target="_blank">http://www.ruby-doc.org/core-1.9.3/Dir.html</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
  *                           ........    QUESTIONS   ..........  
@@ -2484,6 +2692,9 @@ end
 
 
 
+ 
+
+
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
@@ -2494,13 +2705,292 @@ end
 <div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
   <!--..................... NOTES ......................-->
           <aside class="note"><section>
-              ..
+             ...
           </section></aside>
   <!--..................... SLIDE ......................-->
-    <header>ToDo..</header>
+  <header>  Everything is an <span class="redtheme">Object</span> </header>
   <section>
 
-    Text goes here..
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px">
+"Hello World".class # => String
+
+5.class             # => Fixnum
+
+true.class          # => TrueClass
+
+nil.class           # => NilClass
+</pre>
+  </section>
+</div>
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, <span class="redtheme">Objects</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class BookInStock
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+cucumber = BookInStock.new("The Cucumber Book", "Matt Wynne", 38)
+</pre>
+
+<pre style="font-size:25px" >
+puts smart_home      # => #&lt;BookInStock:0x007ff31d9209d8>
+</pre>
+
+<pre style="font-size:25px" >
+puts smart_home.title
+
+# => NoMethodError: undefined method 'title' for #&lt;BookInStock:0x00..>
+</pre>
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, <span class="redtheme">Objects</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:20px" >
+class BookInStock
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+
+  def title
+    @title
+  end
+
+  def author
+    @author
+  end
+
+  def price
+    @price
+  end
+end
+</pre>
+
+<pre style="font-size:22px" >
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+puts smart_home.title      # => "Programming Your Home"
+</pre>
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, <span class="redtheme">Objects</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class BookInStock
+
+  attr_reader :titile, :author, :price
+
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+ 
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, <span class="redtheme">Objects</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:24px" >
+class BookInStock
+
+  attr_reader :titile, :author, :price
+
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+
+  def price=(new_price)
+    @price = Float(new_price)
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+puts "old price: #{smart_home.price}"      # => old price: 41.0
+smart_home.price = 35
+puts "sale price: #{smart_home.price}"     # => sale price: 35.0
+</pre>
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, <span class="redtheme">Objects</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class BookInStock
+
+  attr_reader :titile, :author
+  attr_accessor :price
+
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, Objects, <span class="redtheme">Virtual Attributes</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class BookInStock
+
+  attr_reader :titile, :author, :price
+  attr_accessor :price
+
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+
+  def price_in_cents
+    Integer(price * 100 + 0.5)
+  end
+
+  def price_in_cents=(cents)
+    @price = cents / 100.0
+  end
+end
+</pre>
 
   </section>
 </div>
@@ -2514,36 +3004,32 @@ end
  * 
  *
 -->
-<!-- <div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
-
-    <header>Basic <span class="redtheme">Literals</span> </header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Classes, Objects, <span class="redtheme">Virtual Attributes</span> </header>
   <section>
 
 
-    String, Symbol
-<pre style="font-size:22px">
-"Ukraine on Rails".split(' ') #=> ["Ukraine", "on", "Rails"]
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-%("Go back," he said irritably.).size #=> 29
 
-do_something_with(:this_symbol)
+<pre style="font-size:25px" >
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+
+puts "Price: #{smart_home.price}"                    # => 41.0
+puts "Price in cents: #{smart_home.price_in_cents}"  # => 4100
+
+smart_home.price_in_cents = 3500
+
+puts "Price: #{smart_home.price}"                    # => 35.0
+puts "Price in cents: #{smart_home.price_in_cents}"  # => 3500
 </pre>
-
-    Fixnum, Float
-<pre style="font-size:25px">
-5.times do
-  puts "Simple is Beautiful!"
-end
-        
-12.5.between?(12, 13) #=> true
-</pre>
-
   </section>
-</div> -->
-
-
-
-
+</div>
 
 
 
@@ -2552,287 +3038,48 @@ end
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Basic Literals
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Basic Literals</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Class's </span>Attributes and Methods</header>
   <section>
-    <ul class="large">
-
-      <li>String, Symbol</li>
-<pre style="font-size:22px">
-"Ukraine on Rails".split(' ') #=> ["Ukraine", "on", "Rails"]
-
-%("Go back," he said irritably.).size #=> 29
-
-do_something_with(:this_symbol)
-</pre>
-
-      <li>Fixnum, Float</li>
-<pre style="font-size:22px">
-5.times do
-  puts "Simple is Beautiful!"
-end
-        
-12.5.between?(12, 13) #=> true
-</pre>
 
 
-    </ul>
-  </section>
-</div> -->
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
 
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Basic Literals 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Basic Literals</header>
-  <section>
-    <ul class="large">
+<pre style="font-size:23px" >
+class BookInStock
 
-      <li>Array</li>
-<pre style="font-size:22px">
-['this', :is, 1, "Array"]
+  attr_reader :titile, :author, :price
+  attr_accessor :price
 
-%w(and so is this right here)
+  def self.books
+    @@on_the_shelves
+  end
 
-and_this = []
-
-or_this = Array.new
-</pre>
-
-      <li>Hash</li>
-<pre style="font-size:22px">
-{:hashes => 1, 'are' => 'unordered'}
-
-Hash.new('and', :can_be, 'created', 'several ways')
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Control Structures
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Control Structures</header>
-  <section>
-    <ul class="large">
-
-      <li>If</li>
-<pre style="font-size:22px">
-if car.needs_gas?
-  car.fill_up!
-else
-  car.drive 40
-end
-
-car.fill_up! if car.needs_gas?
-</pre>
-
-      <li>Unless</li>
-<pre style="font-size:22px">
-unless car.needs_gas?
-  car.drive 40
-else
-  # 'else' clause not recommended
-  car.fill_up!
-end
-
-car.drive 40 unless car.needs_gas?
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Control Structures 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Control Structures</header>
-  <section>
-    <ul class="large">
-
-      <li>Case</li>
-<pre style="font-size:22px">
-case car.model
-when 'Ford'
-  # ...
-when 'Porsche'
-  # ...
-else
-  # Something else
-end
-</pre>
-
-      <li>Loops</li>
-<pre style="font-size:22px">
-while car.can_drive? 40
-  car.drive 40
-end
-
-loop do
-  # do something forever
-end
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Blocks
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Blocks</header>
-  <section>
-    <ul class="large">
-
-      <li>Iteration</li>
-<pre style="font-size:22px">
-%w(one two three).each do |item|
-  puts item
-end
-</pre>
-
-      <li>Transactions</li>
-<pre style="font-size:22px">
-File.open('output.txt', 'w') do |f|
-  f.puts 'This is some output'
-end
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Blocks 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Blocks</header>
-  <section>
-    <ul class="large">
-
-      <li>Handlers</li>
-<pre style="font-size:22px">
-button.on :click do |event|
-  window.close!
-end
-</pre>
-
-      <li>Conditional Yield</li>
-<pre style="font-size:22px">
-<% admin do %>
-  &lt;p>Admin-only content&lt;/p>
-<% end %>
-        
-&lt;p>Normal Content&lt;p>
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Methods
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Methods</header>
-  <section>
-    <ul class="large">
-
-      <li>Simple</li>
-<pre style="font-size:22px">
-def say_hello
-  puts "Hello!"
-end
-
-say_hello #=> Hello!
-</pre>
-
-      <li>With Arguments</li>
-<pre style="font-size:22px">
-def say text
-  puts text
-end
-
-say "Okay!" #=> Okay!
-</pre>
-
-
-    </ul>
-  </section>
-</div> -->
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Methods 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Methods</header>
-  <section>
-    <ul class="large">
-
-      <li>'Splat' Args</li>
-<pre style="font-size:22px">
-def remove_files(*files) # 'files' is an Array
-  files.each do |file|
-    FileUtils.rm file
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+    @@on_the_shelves += 1
   end
 end
 
-remove_files 'foo.txt', 'bar.dat'
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+cucumber = BookInStock.new("The Cucumber Book", "Matt Wynne", 38)
+
+puts "On the slelves - #{BookInStock.books}"    # => 2
 </pre>
 
-      <li>Assigning a Block</li>
-<pre style="font-size:22px">
-def do_it(&block)
-  block.call # same as 'yield'
-end
-
-do_it do
-  puts "Hi"
-end
-</pre>
-    </ul>
   </section>
-</div> -->
+</div>
 
 
 
@@ -2840,16 +3087,585 @@ end
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Classes
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Classes</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Classes, Objects <span class="redtheme">Access Control</span></header>
   <section>
-    <ul class="large">
 
-      <li>Defining a Class</li>
-<pre style="font-size:22px">
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:21px" >
+class MyClass
+  def method1       # default is public
+    # ..
+  end
+
+protected
+
+  def method2       # will be protected
+    # ..
+  end
+
+private
+
+  def method3       # will be private
+    # ..
+  end
+
+public
+
+  def method1       # will be public
+    # ..
+  end
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Mixins </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+module Calculate
+
+  def to_cents(dollars)
+    Integer(dollars * 100 + 0.5)
+  end
+
+  def to_dollars(cents)
+    cents / 100.0
+  end
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Mixins </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:23px" >
+class BookInStock
+
+  attr_reader :titile, :author, :price
+  attr_accessor :price
+
+  include Calculate
+
+  def initialize(title, author, price)
+    @title = title
+    @author = author
+    @price = Float(price)
+  end
+
+  def price_in_cents
+    to_cents @price
+  end
+
+  def price_in_cents=(cents)
+    @price = to_dollars(cents)
+  end
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>  Mixins </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+smart_home = BookInStock.new("Programming Your Home", "Mike Riley",41)
+
+puts "Price: #{smart_home.price}"                    # => 41.0
+puts "Price in cents: #{smart_home.price_in_cents}"  # => 4100
+
+smart_home.price_in_cents = 3500
+
+puts "Price: #{smart_home.price}"                    # => 35.0
+puts "Price in cents: #{smart_home.price_in_cents}"  # => 3500
+</pre>
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Module </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+module Calculate
+
+  def self.to_cents(dollars)
+    Integer(dollars * 100 + 0.5)
+  end
+
+  def self.to_dollars(cents)
+    cents / 100.0
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+puts "To cents - #{Calculate.to_cents(100)}"       # => 10000
+puts "To dollars - #{Calculate.to_dollars(5000)}"  # => 50.0
+</pre>
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Variables <span class="redtheme"> Hold Object </span> References </header>
+  <section>
+
+
+<img src="images/ruby/variables.png" style="height:550px;">
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             In Ruby there is no real distinction between code that defines a class
+             and code of any other kind. You can put any code you want in a class
+             definition
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Code block </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+3.times do
+  class C
+    puts "hello"
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+# => Hello
+# => Hello
+# => Hello
+</pre>
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            When the previous code mentions class D for the first time, no class
+            by that name exists yet. So, Ruby steps in and defines the class—and
+            the x( ) method. At the second mention, class D already exists, so Ruby
+            doesn’t need to define it. Instead, it just reopens the existing class and
+            defines a method named y( ) there.
+            In a sense, the class keyword in Ruby is more like a scope operator than
+            a class declaration. Yes, it does create classes that don’t yet exist, but
+            you might argue that it does this as a side effect. For class, the core
+            job is to move you in the context of the class, where you can define
+            methods.
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Classes </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class D
+  def x
+    'x'
+  end
+end
+
+class D
+  def y
+    'y'
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+obj = D.new
+
+puts obj.x      # => x
+puts obj.y      # => y
+</pre>
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            Classes themselves are nothing but objects.
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Classes </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+"hello".class            # => String
+String.class             # => Class
+
+String.superclass        # => Object
+Object.superclass        # => BasicObject
+BasicObject.superclass   # => nil
+
+Class.superclass         # => Module
+Module.superclass        # => Object
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            Constants’ paths use a double colon as a separator (this is akin to
+            the scope operator in C++)
+            If you’re sitting deep inside the tree of constants, you can provide the absolute path to an outer constant by using a leading
+            double colon as root
+            The Module class also provides an instance method and a class
+            method that, confusingly, are both called constants( ). Module#constants( ) returns all constants in the current scope, like
+            your file system’s ls command (or dir command, if you’re running
+            Windows). Module.constants( ) returns all the top-level constants
+            in the current program, including class names
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Constants </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+module M
+  class C
+    X = 'a constant'
+  end
+  C::X    # => 'a constant'
+end
+
+M::C::X   # => 'a constant'
+</pre>
+
+<pre style="font-size:25px" >
+module M
+  Y = 'another constant'
+  class C
+    # absolute path
+    ::M::Y   # => 'another constant'
+  end
+end
+
+M.constants  # => [:C, :Y]
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Constants </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+module M
+  class C
+    module M2
+      puts Module.nesting    # => [M::C::M2, M::C, M]
+    end
+  end
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Inheritance </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  def my_method
+    'my_method ()'
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+class MySubClass &lt; MyClass
+end
+</pre>
+
+<pre style="font-size:25px" >
+obj = MySubClass.new
+obj.my_method()       # => 'my_method ()'
+</pre>
+
+<pre style="font-size:25px" >
+MySubClass.ancestors  
+# => [MySubClass, MyClass, Object, Kernel, BasicObject]
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Inheritance </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+module M
+  def my_method
+    'M#my_method()'
+  end
+end
+
+class C
+  include M
+end
+
+class D &lt; C
+end
+</pre>
+
+<pre style="font-size:25px" >
+D.new.my_method()    # => 'M#my_method()'
+</pre>
+
+<pre style="font-size:25px" >
+MySubClass.ancestors  
+# => [D, C, M, Object, Kernel, BasicObject]
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Inheritance / Polymorphism </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:23px">
 class Car
 
   attr_reader :make, :model, :year
@@ -2857,287 +3673,929 @@ class Car
   def initialize(make, model, year)
     @make, @model, @year = make, model, year
   end
-
   def drive(distance)
     puts "Drove a #{@year} #{@make} #{@model} #{distance}"
   end
-
 end
-</pre>
 
-    </ul>
-  </section>
-</div> -->
-
-
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Classes 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Classes</header>
-  <section>
-    <ul class="large">
-
-      <li>Inheritance / Polymorphism</li>
-<pre style="font-size:22px">
-class Coupe < Car
-
+class Coupe &lt; Car
   def initialize(*args)
     super
     @doors = 2
   end
-  
 end
-</pre>
 
-      <li>Instantiation</li>
-<pre style="font-size:22px">
 vroom = Car.new "Audi", "A4", 2008
-
 vroom.drive '20km' # Drove a 2008 Audi A4 20km
 </pre>
-    </ul>
+
   </section>
-</div> -->
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Really Object Oriented
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Really Object Oriented </header>
-  <section>
- <ul class="large">
-
-      <li>Everything is an Object</li>
-<pre style="font-size:22px">
-
-<b>"Hello World"</b>.class # <b>String</b>
-
-<b>5</b>.class # <b>Fixnum</b>
-
-<b>true</b>.class # <b>TrueClass</b>
-
-<b>nil</b>.class # <b>NilClass</b>
+</div>
 
 
-</pre>
-    </ul>
-  </section>
-</div> -->
-
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Enumerable
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Enumerable</header>
-  <section>
-    <ul class="large">
-
-      <li>each</li>
-<pre style="font-size:22px">
-files.each do |file|
-  FileUtils.cp file, '/destination/dir'
-end
-</pre>
-
-      <li>map / collect</li>
-<pre style="font-size:22px">
-files = ['zsh.tar', 'index.xml']
-
-files.map do |file|
-  [file, File.stat(file).size]
-end
-
-# [["zsh.tar", 71680], ["index.xml", 68009]]
-</pre>
-    </ul>
-  </section>
-</div> -->
 
 
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * Enumerable 2
- *
--->
-<!-- <div class="slide centercontents">
-  <header>Enumerable</header>
-  <section>
-    <ul class="large">
 
-      <li>select, reject, detect</li>
-<pre style="font-size:22px">
-files.select { |f| File.stat(f) > 70_000 }  # ['zsh.tar']
 
-files.detect { |f| File.stat(f) > 70_000 }  # 'zsh.tar'
 
-files.reject { |f| File.stat(f) > 70_000 }  # ['index.xml']
-
-</pre>
-
-      <li>inject</li>
-<pre style="font-size:22px">
-files.inject({}) do |manifest, filename|
-  manifest[filename] = File.stat(filename).size
-  manifest
-end
-
-# {"zsh.tar" => 71680, "index.xml" => 68009}
-</pre>
-    </ul>
-  </section>
-</div> -->
 
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Mixins
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Mixins</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ..
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> The rules of <span class="redtheme">method lookup</span> </header>
   <section>
-    <ul class="large">
+    <ul>
+      <li>In singleton class</li>
+      <li>Its class</li>
+      <li>Modules mixed into its class, in reverse order of inclusion</li>
+      <li>The class's superclass</li>
+      <li>Modules mixed into the superclass, in reverse order of inclusion</li>
+      <li>Likewise, up to Object (and its mix-in Kernel) and BasicObject</li>
+    </ul>
+  </section>
+</div>
 
-      <li>Module Definition</li>
-<pre style="font-size:22px">
-module Conversions
 
-  KM_PER_MILE = 1.609
 
-  def mi_to_km(miles)
-    miles * KM_PER_MILE
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>The <span class="redtheme"> Basic Object </span> </header>
+  <section>
+
+
+<img src="images/ruby/basic_object.png" style="height:550px;">
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            As soon as you call testing_self( ), the receiver obj becomes self. Because
+            of that, the instance variable @var is an instance variable of obj, and the
+            method my_method( ) is called on obj( ). As my_method( ) is executed, obj
+            is still self, so @var is still an instance variable of obj. Finally, testing_self( )
+            returns a reference to self (you can also check the output to verify that
+            @var is now worth 11).
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Self </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class C
+  def testing_self
+    @var = 10
+    my_method()
+    self
   end
 
-  def km_to_mi(kilometers)
-    kilometers / KM_PER_MILE
+  def my_method
+    @var = @var + 1
   end
-
 end
 </pre>
 
-    </ul>
+<pre style="font-size:25px" >
+obj = MyClass.new
+obj.testing_self        # => #&lt;MyClass @var=11>
+</pre>
+
   </section>
-</div> -->
+</div>
+
+
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Mixins 2
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Mixins</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Self in <span class="redtheme"> Different Context </span> </header>
   <section>
-    <ul class="large">
 
-      <li>Include</li>
-<pre style="font-size:22px">
-class Car
 
-  include Conversions
+<img src="images/ruby/self_in_diffcontext.png" style="height:550px;">
 
-  def drive(distance, unit=:km)
+  </section>
+</div>
 
-    distance = if unit == :km
-      distance
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Private</span> and <span class="redtheme">Self</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class C
+  def public_method
+    self.private_method
+  end
+
+  private
+
+  def private_method
+  end
+end
+</pre>
+
+<pre style="font-size:23px" >
+C.new.public_method
+# => NoMethodError: private method `private_method' called for #&lt;C:0x00..>
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Method <span class="redtheme">lookup</span> chain </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:21px" >
+module Printable
+  def print
+    puts "Printable::print"
+  end
+  def prepare_cover
+    puts "Printable::prepare_cover"
+  end
+end
+
+module Document
+  def print_to_screen
+    puts "Document::print_to_screen"
+    prepare_cover
+    format_for_screen
+    print
+  end
+  def format_for_screen
+    puts "Document::format_for_screen"
+  end
+  def print
+    puts "Document::print"
+  end
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Method <span class="redtheme">lookup</span> chain </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class Book
+  include Document
+  include Printable
+end
+</pre>
+
+<pre style="font-size:25px" >
+b = Book.new
+b.print_to_screen
+</pre>
+
+<pre style="font-size:25px" >
+# => Document::print_to_screen
+# => Printable::prepare_cover
+# => Document::format_for_screen
+# => Printable::print
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header>Method <span class="redtheme">lookup</span> chain </header>
+  <section>
+
+
+<img src="images/ruby/basic_object_loockup.png" style="height:490px;">
+
+
+<pre style="font-size:25px" >
+Book.ancestors
+# => [Book, Printable, Document, Object, Kernel, BasicObject]
+</pre>
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Calling Methods <span class="redtheme">Dynamically</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  def my_method(my_arg)
+    my_arg * 2
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+obj = MyClass.new
+obj.my_method(3)             # => 6
+</pre>
+
+<pre style="font-size:25px" >
+obj.send(:my_method, 3)      # => 6
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Defining Methods <span class="redtheme">Dynamically</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  define_method :my_method do |my_arg|
+    my_arg * 3
+  end
+end
+</pre>
+
+<pre style="font-size:25px" >
+obj = MyClass.new
+obj.my_method(2)             # => 6
+</pre>
+
+  </section>
+</div>
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Undefining</span> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  def meth1; "meth1 called"; end
+  def meth2; "meth2 called"; end
+  def meth3; "meth3 called"; end
+end
+
+obj = MyClass.new      # => #&lt;MyClass:0x9170850>
+obj.meth1              # => "meth1 called"
+</pre>
+
+<pre style="font-size:25px" >
+class MyClass
+  undef meth1
+  remove_method :meth2
+  undef_method :meth3
+end
+
+obj.meth1              # => NoMethodError
+obj.meth2              # => NoMethodError
+obj.meth3              # => NoMethodError
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Undefining</span> Class </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+Object.send(:remove_const, :MyClass)
+
+obj = MyClass.new    # => NameError: unitialized constant
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Method <span class="redtheme">Missing</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  def method_missing(method, *args)
+    puts "You called: #{method}(#{args.join(', ')})"
+    puts "(you also passed it a block)" if block_given?
+  end
+end
+</pre>
+
+
+<pre style="font-size:25px" >
+c = MyClass.new
+
+c.talk_simple('a', 'b') do    # => You called: talk_simple(a, b)
+  # a block                   # => (you also passed it a block)
+end
+</pre>
+
+  </section>
+</div>
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Method <span class="redtheme">Missing</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class Person
+  def method_missing(meth, *args, &block)
+    if meth.to_s =~ /^find_by_(.+)$/
+      'looking for the Person'
     else
-      mi_to_km(distance)
+      super
     end
-
-    # Do something
   end
 
-  # ...
-  
+  def respond_to?(meth)
+    if meth.to_s =~ /^find_by_.*$/ then true else super end  
+  end
 end
 </pre>
 
-    </ul>
+
+<pre style="font-size:25px" >
+# you cal call:
+#   -> person.find_by_name
+#   -> person.find_by_age
+#   -> person.find_by_id
+</pre>
+
   </section>
-</div> -->
+</div>
+
+
+<!---------------------------------------------------------------------------------------------
+ *
+ * SKIPPED: 21-23, 26-44
+ *
+--------------------------------------------------------------------------------------------->
 
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Dynamic Features
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Dynamic Features</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Scope </header>
   <section>
-    <ul class="large">
 
-      <li>Listing Methods</li>
-<pre style="font-size:22px">
-"name".methods
 
-# ["%", "select", "[]=", "inspect", "<<", "each_byte",
-# "method", "clone", "gsub", "casecmp", "public_
-</pre>
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-      <li>Dynamic Evaluation</li>
-<pre style="font-size:22px">
-name = 'John'
 
-obj.instance_eval <&lt;CODE
-  def yell
-    puts "My name is #{name}!!!"
+<pre style="font-size:25px" >
+v1 = 1
+
+class MyClass
+  v2 = 2
+  local_variables       # => [:v2]
+
+  def my_method
+    v3 = 3
+    local_variables     # => [:v2]
   end
-CODE
 
-obj.yell # My name is John!!!
+  local_variables       # => [:v2]
+end
 </pre>
-    </ul>
+
+
+<pre style="font-size:25px" >
+obj = MyClass.new
+obj.my_method         # => [:v3]
+obj.my_method         # => [:v3]
+local_variables       # => [:v1, :obj]
+</pre>
+
   </section>
-</div> -->
+</div>
+
+
 
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
  *
- * Dynamic Features 2
+ * 
  *
 -->
-<!-- <div class="slide centercontents">
-  <header>Dynamic Features</header>
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Block-local</span> Variables </header>
   <section>
-    <ul class="large">
 
-      <li>Dynamic</li>
-<pre style="font-size:22px">
-obj.methods.select do |n|
-  n =~ /[a-z]$/
-end.each do |meth|
-  obj.instance_eval <<-CODE
-    alias :original_#{meth} :#{meth}
-    def #{meth}(*args, &block)
-      puts "Doing #{meth}..."
-      result = original_#{meth}(*args, &block)
-      puts "Done doing #{meth}, result: \#{result}"
-      result
-    end
-  CODE
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+def my_method
+  yield
 end
+
+top_level_variable = 1
+
+my_methtod do
+  top_level_variable = 1
+  local_to_block = 1
+end
+
+top_level_variable   # => 3
+local_to_block       # => Error!
 </pre>
 
 
-    </ul>
   </section>
-</div> -->
+</div>
 
 
 
-        
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme">Singleton</span> Methods </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+str = 'just a regular string'
+
+def str.title?
+  self.upcase == self
+end
+
+str.title?                    # => false
+str.methods.grep(/title?/)    # => ["title?"]
+str.singleton_methods         # => ["title?"]
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Method <span class="redtheme">Aliases</span> </header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+class MyClass
+  def my_method
+    'my_method()'
+  end
+  alias :m :my_method
+end
+</pre>
+
+<pre style="font-size:25px" >
+obj = MyClass.new
+obj.my_method         # => 'my_method()'
+obj.m                 # => 'my_method()'
+</pre>
+
+<pre style="font-size:25px" >
+class MyClass
+  alias :m2 :m
+end
+
+obj.m2                # => 'my_method()'
+</pre>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+             ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> <span class="redtheme"> Regular Expressions</span>..</header>
+  <section>
+
+
+    <h1> <a href="http://rubular.com" target="_blank">http://rubular.com</a></h1>
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ ruby -c test.rb
+ awesome_print
+ zip (14:39)
+ <==>
+ json 17:20
+ __method__ 18:20
+ .map(&;upcase)
+ _ in irb 19:11
+ source_location 21:55
+
+
+-------------
+ 2 - Shortcut for Array#join
+
+It's common knowledge that Array#*, when supplied with a number, multiplies the size of the array by using duplicate elements:
+
+[1, 2, 3] * 3 == [1, 2, 3, 1, 2, 3, 1, 2, 3]
+It's not well known, however, that when given a string as an argument Array#* does a join!
+
+%w{this is a test} * ", "                 # => "this, is, a, test"
+h = { :name => "Fred", :age => 77 }
+h.map { |i| i * "=" } * "n"              # => "age=77nname=Fred"
+
+-------------
+
+7 - Cut down on local variable definitions
+
+Instead of defining a local variable with some initial content (often just an empty hash or array), you can instead define it "on the go" so you can perform operations on it at the same time:
+
+(z ||= []) << 'test'
+
+-------------
+
+8 - Using non-strings or symbols as hash keys
+
+It's rare you see anyone use non-strings or symbols as hash keys. It's totally possible though, and sometimes handy (and, no, this isn't necessarily a great example!):
+
+does = is = { true => 'Yes', false => 'No' }
+does[10 == 50]                       # => "No"
+is[10 > 5]                           # => "Yes"
+
+-------------
+
+17 - See the whole of an exception's backtrace
+
+def do_division_by_zero; 5 / 0; end
+begin
+  do_division_by_zero
+rescue => exception
+  puts exception.backtrace
+end
+
+
+21 - Rescue to the rescue
+
+You can use rescue in its single line form to return a value when other things on the line go awry:
+
+h = { :age => 10 }
+h[:name].downcase                         # ERROR
+h[:name].downcase rescue "No name"        # => "No name"
+--------------
+
+1_000_00
+
+--------------
+Hash[:apples, 3 :bananas, 2]
+
+--------------
+https://speakerdeck.com/u/jsantos/p/ruby-things
+
+a.shuffle
+
+words.group_by
+
+a.sample
+
+----------
+
+https://speakerdeck.com/u/jeg2/p/10-things-you-didnt-know-ruby-could-do
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3167,7 +4625,7 @@ end
         <a href="http://www.codeschool.com/courses/ruby-bits" target="_blank">• http://www.codeschool.com/courses/ruby-bits</a><br>
         <a href="http://www.codecademy.com/tracks/ruby" target="_blank">• http://www.codecademy.com/tracks/ruby</a><br>
         <a href="http://rubykoans.com" target="_blank">• http://rubykoans.com</a><br>
-        <a href="http://ru.wikibooks.org/wiki/Ruby" target="_blank">• Russion Ruby WikiBook</a><br>
+        <a href="http://ru.wikibooks.org/wiki/Ruby" target="_blank">• Russian Ruby WikiBook</a><br>
         <a href="http://mislav.uniqpath.com/poignant-guide/" target="_blank">• Why's guide to Ruby</a><br>
         <a href="http://hackety.com" target="_blank">• http://hackety.com </a><br>
       
