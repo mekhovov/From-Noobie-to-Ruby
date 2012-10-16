@@ -231,10 +231,10 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <img style="width:130px" src="images/ico_ruby.png" />
       <span class="bluetheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Advanced</span>
     </div>
-    <!-- <div class="item" style="margin-top: 0px; margin-left:-130px">
+    <div class="item" style="margin-top: 0px; margin-left:-130px">
       <img style="width:130px" src="images/topic_4.png" />
-      <span class="yellowtheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">What is <b>JavaScript</b> ?</span>
-    </div> -->
+      <span class="yellowtheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Tips and Tricks</span>
+    </div>
 
   </section>
 </div>
@@ -4459,84 +4459,277 @@ obj.m2                # => 'my_method()'
 
 
 
+<!--------------------------------------- Slide 7 -------------------------------------------------------
+ *
+ * Ruby Advanced
+ *
+-->
+<div class="slide transparent  centercontents slide-text" data-backgroundid="bg-02">
+  <h1><header style="color:yellow; font-size:150px; margin-top:-150px;">Ruby Tips and Tricks</header></h1>
+  <img src="images/ico_ruby.png" style="width: 270px;">
+</div>
+
+
+
+
+
 
 
 <!--------------------------------------- Slide  -------------------------------------------------------
- ruby -c test.rb
- awesome_print
- zip (14:39)
- <==>
- json 17:20
- __method__ 18:20
- .map(&;upcase)
- _ in irb 19:11
- source_location 21:55
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
 
 
--------------
- 2 - Shortcut for Array#join
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-It's common knowledge that Array#*, when supplied with a number, multiplies the size of the array by using duplicate elements:
 
-[1, 2, 3] * 3 == [1, 2, 3, 1, 2, 3, 1, 2, 3]
-It's not well known, however, that when given a string as an argument Array#* does a join!
+<pre style="font-size:25px" >
+ruby -c test.rb             # => Syntax OK
+</pre>
 
-%w{this is a test} * ", "                 # => "this, is, a, test"
-h = { :name => "Fred", :age => 77 }
-h.map { |i| i * "=" } * "n"              # => "age=77nname=Fred"
+<pre style="font-size:25px" >
+gem install awesome_print
+</pre>
 
--------------
+<pre style="font-size:25px" >
+1.9.3-p125 :006 > 100 / 2
+ => 50 
+1.9.3-p125 :007 > _
+ => 50 
+</pre>
 
-7 - Cut down on local variable definitions
+<pre style="font-size:25px" >
+3_000_000.times {|time| p time}
+</pre>
 
-Instead of defining a local variable with some initial content (often just an empty hash or array), you can instead define it "on the go" so you can perform operations on it at the same time:
+<pre style="font-size:25px" >
+z ||= []
+z << 'test'
+</pre>
 
-(z ||= []) << 'test'
 
--------------
+  </section>
+</div>
 
-8 - Using non-strings or symbols as hash keys
 
-It's rare you see anyone use non-strings or symbols as hash keys. It's totally possible though, and sometimes handy (and, no, this isn't necessarily a great example!):
 
+
+
+
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+['equal','larger','smaller'][first_number &lt;=> second_number]
+</pre>
+
+
+<pre style="font-size:25px" >
+%w(fred jess john).map(&;upcase)
+</pre>
+
+<pre style="font-size:25px" >
+[1, 2, 3] * 3                 # => [1, 2, 3, 1, 2, 3, 1, 2, 3]
+%w{this is a test} * ", "     # => "this, is, a, test"
+</pre>
+
+<pre style="font-size:25px" >
 does = is = { true => 'Yes', false => 'No' }
-does[10 == 50]                       # => "No"
-is[10 > 5]                           # => "Yes"
+does[10 == 50]                # => "No"
+is[10 > 5]                    # => "Yes"
+</pre>
 
--------------
 
-17 - See the whole of an exception's backtrace
+  </section>
+</div>
 
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+names = %w(fred jess john)
+ages = [38, 47, 91]
+names.zip(ages)        # => [["fred", 38], ["jess", 47], ["john", 91]] 
+Hash[names.zip(ages)]  # => {"fred"=>38, "jess"=>47, "john"=>91} 
+</pre>
+
+
+<pre style="font-size:25px" >
 def do_division_by_zero; 5 / 0; end
 begin
   do_division_by_zero
 rescue => exception
   puts exception.backtrace
 end
+</pre>
 
-
-21 - Rescue to the rescue
-
-You can use rescue in its single line form to return a value when other things on the line go awry:
-
+<pre style="font-size:25px" >
 h = { :age => 10 }
-h[:name].downcase                         # ERROR
-h[:name].downcase rescue "No name"        # => "No name"
---------------
+h[:name].downcase                     # ERROR
+h[:name].downcase rescue "No name"    # => "No name"
+</pre>
 
-1_000_00
 
---------------
-Hash[:apples, 3 :bananas, 2]
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+require 'json'
+h =  {:banana => 2, :apple => 3}
+j h          # => {"banana":2,"apple":3}
+jj h         # {
+             #   "banana": 2,
+             #   "apple": 3
+             # }
+</pre>
+
+<pre style="font-size:25px" >
+ __method__
+</pre>
+
+<pre style="font-size:25px" >
+source_location
+</pre>
+
+
+<pre style="font-size:25px" >
+caller
+</pre>
+
+
+
+  </section>
+</div>
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+<pre style="font-size:25px" >
+a = [1, 2, 3, 4, 5]
+a.shuffle       # => [5, 1, 2, 4, 3] 
+</pre>
+
+<pre style="font-size:25px" >
+a = [1, 2, 3, 4, 5]
+a.sample        # => 3
+a.sample        # => 1
+a.sample(2)     # => [4, 2]
+</pre>
+
+<pre style="font-size:25px" >
+words = %w(foo bar yo stuff)   # => ["foo", "bar", "yo", "stuff"] 
+words.group_by {|w| w.size}    
+# => {3=>["foo", "bar"], 2=>["yo"], 5=>["stuff"]} 
+</pre>
+
+
+  </section>
+</div>
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ 
+ 
+
+
 
 --------------
 https://speakerdeck.com/u/jsantos/p/ruby-things
 
-a.shuffle
 
 words.group_by
-
-a.sample
 
 ----------
 
