@@ -219,7 +219,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 <div class="slide transparent centercontents slide-text agenda" id="slide-agenda" data-backgroundid="bg-01">
   <section>
     <header>AGENDA</header>
-    <div class="item" style="margin-top: 20px; margin-left:-130px">
+    <div class="item" style="margin-top: 0px; margin-left:-130px">
       <img style="width:130px" src="images/ico_ruby.png" />
       <span class="grintheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">What is Ruby ? </span>
     </div>
@@ -232,7 +232,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <span class="bluetheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Advanced</span>
     </div>
     <div class="item" style="margin-top: 0px; margin-left:-130px">
-      <img style="width:130px" src="images/topic_4.png" />
+      <img style="width:130px" src="images/ico_ruby.png" />
       <span class="yellowtheme" style="margin-bottom: 0px; font-size:55px; font-family:'UglyQua';">Ruby Tips and Tricks</span>
     </div>
 
@@ -4475,56 +4475,6 @@ obj.m2                # => 'my_method()'
 
 
 
-<!--------------------------------------- Slide  -------------------------------------------------------
- *
- * 
- *
--->
-<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
-  <!--..................... NOTES ......................-->
-          <aside class="note"><section>
-            ...
-          </section></aside>
-  <!--..................... SLIDE ......................-->
-  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
-  <section>
-
-
-<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
-
-
-<pre style="font-size:25px" >
-ruby -c test.rb             # => Syntax OK
-</pre>
-
-<pre style="font-size:25px" >
-gem install awesome_print
-</pre>
-
-<pre style="font-size:25px" >
-1.9.3-p125 :006 > 100 / 2
- => 50 
-1.9.3-p125 :007 > _
- => 50 
-</pre>
-
-<pre style="font-size:25px" >
-3_000_000.times {|time| p time}
-</pre>
-
-<pre style="font-size:25px" >
-z ||= []
-z << 'test'
-</pre>
-
-
-  </section>
-</div>
-
-
-
-
-
 
 
 
@@ -4551,7 +4501,7 @@ z << 'test'
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
 <pre style="font-size:25px" >
-['equal','larger','smaller'][first_number &lt;=> second_number]
+['equal','larger','smaller'][first &lt;=> second]
 </pre>
 
 
@@ -4619,6 +4569,58 @@ h[:name].downcase                     # ERROR
 h[:name].downcase rescue "No name"    # => "No name"
 </pre>
 
+
+
+  </section>
+</div>
+
+
+
+
+
+
+
+<!--------------------------------------- Slide  -------------------------------------------------------
+ *
+ * 
+ *
+-->
+<div class="slide transparent centercontents slide-text" data-backgroundid="bg-01">
+  <!--..................... NOTES ......................-->
+          <aside class="note"><section>
+            ...
+          </section></aside>
+  <!--..................... SLIDE ......................-->
+  <header> Ruby <span class="redtheme">Tips</span> and <span class="redtheme">Tricks</span></header>
+  <section>
+
+
+<!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
+
+
+<pre style="font-size:25px" >
+ruby -c test.rb             # => Syntax OK
+</pre>
+
+<pre style="font-size:25px" >
+gem install awesome_print
+</pre>
+
+<pre style="font-size:25px" >
+1.9.3-p125 :006 > 100 / 2
+ => 50 
+1.9.3-p125 :007 > _
+ => 50 
+</pre>
+
+<pre style="font-size:25px" >
+3_000_000.times {|time| p time}
+</pre>
+
+<pre style="font-size:25px" >
+z ||= []
+z << 'test'
+</pre>
 
 
   </section>
