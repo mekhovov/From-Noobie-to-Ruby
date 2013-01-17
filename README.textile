@@ -2,9 +2,12 @@ h1. Presentation = { :noobie => 'Ruby' }
 
 
 
-Not a boooring Presentation about Ruby and Ruby on Rails
+What is Ruby ?
 
+Ruby Basics
 
+Ruby Advanced
 
+Ruby Tips and Tricks
 
-Comming soon ...
+Links
