@@ -672,7 +672,7 @@ curl -L https://get.rvm.io | bash -s stable --ruby
 
 <pre style="font-size:25px">
 # .rvmrc file
-rvm use ruby-1.9.3-head@my_project
+rvm use ruby-1.9.3-head@my_project --create
 </pre>
   </section>
 </div>
@@ -964,14 +964,15 @@ Bignum: 11790184577738583171520872861412518665678211592275841109096961
 </pre>
 
 <pre style="font-size:25px" >
-"Tro #{Lo * 3} !!"              # => Tro Lo Lo Lo !!
+"Tro #{'Lo ' * 3} !!"              # => Tro Lo Lo Lo  !!
 </pre>
 
 <pre style="font-size:25px" >
 "now is #{def the(a)
             'the' + a
           end
-          the('time') } for all good coders.."
+          the('time') 
+          } for all good coders.."
                                
 # => now is the time for all good coders..
 </pre>
@@ -1339,7 +1340,7 @@ colors[1..2] = 'orange', 'pink'   # colors: ["red", "orange", "pink"]
 colors = ['red', 'green', 'blue']
 
 colors.delete_at(1)     # colors: ['red', 'blue']
-colors.delete("blue")   # colors: ['green']
+colors.delete("blue")   # colors: ['red']
 </pre>
   </section>
 </div>
@@ -1410,7 +1411,7 @@ h[12]             # => "dodecine"
 </pre>
 
 <pre style="font-size:25px" >
-{hashes: 1, are: 'unordered'}  # => {:hashes => 1, :are => 'unordered'}
+{hashes: 1, are: 'unordered'}  #=> {:hashes => 1, :are => 'unordered'}
 </pre>
   </section>
 </div>
@@ -1786,7 +1787,7 @@ cool_dude 'Bart', 'Elwood', 'Linus'  # => "Bart, Elwood, Linus."
 
 <pre style="font-size:25px" >
 def surround(word, pad_width=word.length/2)
-  "[" * pad_width + word = "]" * pad_width
+  "[" * pad_width + word + "]" * pad_width
 end
 </pre>
 
@@ -2078,7 +2079,7 @@ meth_two(0)        # => "zero"
 def meth_three
   100.times do |num|
     square = num * num
-    return num, square if square > 100
+    return num, square if square > 1000
   end
 end
 </pre>
@@ -2121,26 +2122,27 @@ square           # => 1024
 
 <pre style="font-size:25px" >
 a = 5 
+</pre>
+
+<pre style="font-size:25px" >
 if a == 4 
   a = 7
-end
+end                         # a => 5
 </pre>
 
 <pre style="font-size:25px" >
-if a == 4 then a = 7 end
+if a == 4 then a = 7 end    # a => 5
 </pre>
 
 <pre style="font-size:25px" >
-a = 7 if a == 4
+a = 7 if a == 4             # a => 5
 </pre>
 
 
 <pre style="font-size:25px" >
 unless a == 4
   a = 7
-end
-
-a # => 7
+end                         # a => 7
 </pre>
 
   </section>
@@ -2212,18 +2214,15 @@ false ? 't' : 'f'       # => 'f'
 
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-<pre style="font-size:25px" >
+<pre style="font-size:28px" >
 a = 1
 
 r = case a
   when a < 5
-    puts "#{a} less than 5"
     "#{a} less than 5"
   when a == 5
-    puts "#{a} equals than 5"
     "#{a} equals than 5"
   when a > 5
-    puts "#{a} greather than 5"
     "#{a} greather than 5"
 end
 </pre>
@@ -2257,16 +2256,16 @@ r   # => 1 less than 5
 
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-<pre style="font-size:25px" >
+<pre style="font-size:28px" >
 case a
   when 0..4
-    "#{a} less than 5"
+    puts "#{a} less than 5"
   when 5
-    "#{a} equals than 5"
+    puts "#{a} equals than 5"
   when 5..10
-    "#{a} greather than 5"
+    puts "#{a} greather than 5"
   else
-    "unexpected value #{a}"
+    puts "unexpected value #{a}"
 end
 </pre>
   </section>
@@ -2293,7 +2292,7 @@ end
 
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-<pre style="font-size:25px" >
+<pre style="font-size:28px" >
 nil && 99       # => nil
 false && 99     # => false
 'cat' && 99     # => 99
@@ -2328,21 +2327,28 @@ false || 99     # => 99
 
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
-<pre style="font-size:25px" >
+<pre style="font-size:28px" >
 a = 1
 while a < 5
   puts a
   a += 1
 end
+
+# => 1 2 3 4
 </pre>
 
-<pre style="font-size:25px" >
+<!-- 
+# ?????????
+<pre style="font-size:28px" >
 a = 1
 untill a == 5
   puts a
   a += 1
 end
+
+# => 1 2 3 4
 </pre>
+ -->
 
   </section>
 </div>
@@ -2538,7 +2544,7 @@ file.closed?                          # => nil
 File.rename("tempf.txt", "newf.txt")  # => 0
 File.delete "newf.txt"                # => 1
 File.exists? "temp.txt"               # => true
-File.file?(".")                       # => true
+File.file?(".")                       # => false
 File.directory?(".")                  # => true
 File.readable?("temp.txt")            # => true
 File.writable?("temp.txt")            # => true
@@ -2849,7 +2855,7 @@ puts smart_home.title      # => "Programming Your Home"
 <pre style="font-size:25px" >
 class BookInStock
 
-  attr_reader :titile, :author, :price
+  attr_reader :title, :author, :price
 
   def initialize(title, author, price)
     @title = title
@@ -2887,7 +2893,7 @@ end
 <pre style="font-size:24px" >
 class BookInStock
 
-  attr_reader :titile, :author, :price
+  attr_reader :title, :author, :price
 
   def initialize(title, author, price)
     @title = title
@@ -2934,7 +2940,7 @@ puts "sale price: #{smart_home.price}"     # => sale price: 35.0
 <pre style="font-size:25px" >
 class BookInStock
 
-  attr_reader :titile, :author
+  attr_reader :title, :author
   attr_accessor :price
 
   def initialize(title, author, price)
@@ -2973,7 +2979,7 @@ end
 <pre style="font-size:25px" >
 class BookInStock
 
-  attr_reader :titile, :author, :price
+  attr_reader :title, :author
   attr_accessor :price
 
   def initialize(title, author, price)
@@ -3057,7 +3063,7 @@ puts "Price in cents: #{smart_home.price_in_cents}"  # => 3500
 <pre style="font-size:23px" >
 class BookInStock
 
-  attr_reader :titile, :author, :price
+  attr_reader :title, :author
   attr_accessor :price
 
   def self.books
@@ -3201,7 +3207,7 @@ end
 <pre style="font-size:23px" >
 class BookInStock
 
-  attr_reader :titile, :author, :price
+  attr_reader :title, :author
   attr_accessor :price
 
   include Calculate
@@ -3351,15 +3357,15 @@ puts "To dollars - #{Calculate.to_dollars(5000)}"  # => 50.0
 <pre style="font-size:25px" >
 3.times do
   class C
-    puts "hello"
+    puts "Hello: #{C.object_id}"
   end
 end
 </pre>
 
 <pre style="font-size:25px" >
-# => Hello
-# => Hello
-# => Hello
+# => Hello: 70218127840500
+# => Hello: 70218127840500
+# => Hello: 70218127840500
 </pre>
   </section>
 </div>
@@ -3570,7 +3576,7 @@ end
 <pre style="font-size:25px" >
 class MyClass
   def my_method
-    'my_method ()'
+    'hello from MOM'
   end
 end
 </pre>
@@ -3582,7 +3588,7 @@ end
 
 <pre style="font-size:25px" >
 obj = MySubClass.new
-obj.my_method()       # => 'my_method ()'
+obj.my_method()       # => 'hello from MOM'
 </pre>
 
 <pre style="font-size:25px" >
@@ -3780,7 +3786,7 @@ vroom.drive '20km' # Drove a 2008 Audi A4 20km
 
 
 <pre style="font-size:25px" >
-class C
+class MyClass
   def testing_self
     @var = 10
     my_method()
@@ -3795,7 +3801,8 @@ end
 
 <pre style="font-size:25px" >
 obj = MyClass.new
-obj.testing_self        # => #&lt;MyClass @var=11>
+obj.testing_self        
+# => #&lt;MyClass:0x007fb9db8858f0 @var=11>
 </pre>
 
   </section>
@@ -4218,7 +4225,7 @@ end
 
 <pre style="font-size:25px" >
 class Person
-  def method_missing(meth, *args, &block)
+  def method_missing(meth, *args, &block)   # let's do some magic:
     if meth.to_s =~ /^find_by_(.+)$/
       'looking for the Person'
     else
@@ -4234,7 +4241,7 @@ end
 
 
 <pre style="font-size:25px" >
-# you cal call:
+# you can call:
 #   -> person.find_by_name
 #   -> person.find_by_age
 #   -> person.find_by_id
@@ -4326,8 +4333,8 @@ end
 
 top_level_variable = 1
 
-my_methtod do
-  top_level_variable = 1
+my_method do
+  top_level_variable = 3
   local_to_block = 1
 end
 
@@ -4501,17 +4508,9 @@ obj.m2                # => 'my_method()'
 <!-- - - - - - - - - - - - code - - - - - - - - - - - - -->
 
 <pre style="font-size:25px" >
-['equal','larger','smaller'][first &lt;=> second]
-</pre>
-
-
-<pre style="font-size:25px" >
-%w(fred jess john).map(&;upcase)
-</pre>
-
-<pre style="font-size:25px" >
-[1, 2, 3] * 3                 # => [1, 2, 3, 1, 2, 3, 1, 2, 3]
-%w{this is a test} * ", "     # => "this, is, a, test"
+def compare first, second
+  ['equal','larger','smaller'][first &lt;=> second]
+end
 </pre>
 
 <pre style="font-size:25px" >
@@ -4519,6 +4518,19 @@ does = is = { true => 'Yes', false => 'No' }
 does[10 == 50]                # => "No"
 is[10 > 5]                    # => "Yes"
 </pre>
+
+<pre style="font-size:25px" >
+%w(fred jess john).map(&:capitalize)
+</pre>
+
+<pre style="font-size:25px" >
+[1, 2, 3] * 3                 # => [1, 2, 3, 1, 2, 3, 1, 2, 3]
+</pre>
+
+<pre style="font-size:25px" >
+%w{this is a test} * ", "     # => "this, is, a, test"
+</pre>
+
 
 
   </section>
@@ -4606,12 +4618,6 @@ ruby -c test.rb             # => Syntax OK
 gem install awesome_print
 </pre>
 
-<pre style="font-size:25px" >
-1.9.3-p125 :006 > 100 / 2
- => 50 
-1.9.3-p125 :007 > _
- => 50 
-</pre>
 
 <pre style="font-size:25px" >
 3_000_000.times {|time| p time}
@@ -4620,6 +4626,14 @@ gem install awesome_print
 <pre style="font-size:25px" >
 z ||= []
 z << 'test'
+</pre>
+
+<pre style="font-size:25px" >
+irb
+1.9.3-p125:001 ➜ 100 / 2
+ => 50 
+1.9.3-p125:002 ➜ _
+ => 50 
 </pre>
 
 
