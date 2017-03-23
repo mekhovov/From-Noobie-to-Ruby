@@ -11,3 +11,4 @@ Ruby Advanced
 Ruby Tips and Tricks
 
 Links
+"!https://beerpay.io/mekhovov/From-Noobie-to-Ruby/badge.svg?style=beer-square!":https://beerpay.io/mekhovov/From-Noobie-to-Ruby
